@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Lego page tests" parallel="false">
+    <test name="Test filter and cart">
+        <parameter name="testDataPath" value="src/test/resources/TestData/DataKeyChainSearch.json"/>
+        <classes>
+            <class name="com.automation.legoProject.testCases.TestFilter">
+                <methods>
+                    <include name="testFilterAndBasket"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Test search">
+        <parameter name="testDataPath" value="src/test/resources/TestData/DataSearch.json"/>
+        <classes>
+            <class name="com.automation.legoProject.testCases.TestSearch">
+                <methods>
+                    <include name="testSearchSuggestion"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
