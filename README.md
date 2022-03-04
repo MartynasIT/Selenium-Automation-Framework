@@ -1,5 +1,5 @@
 # Selenium Framework
- To run selenium Task cmd to projects location and use:
+ To run Suite CMD to projects location and use:
  1. mvn -Dsurefire.suiteXmlFiles=src/test/resources/TestSuites/LegoSuite.xml -Dbrowser=Chrome test 
  2. Using InteliJ Run configuration.
  
