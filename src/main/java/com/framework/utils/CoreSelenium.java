@@ -37,10 +37,6 @@ public class CoreSelenium {
         setDriver(driver);
     }
 
-    public synchronized WebDriver getDriver() {
-        return this.driver.get();
-    }
-
     private synchronized void setDriver(WebDriver driver) {
         this.driver.set(driver);
     }
@@ -50,12 +46,20 @@ public class CoreSelenium {
             logger.info(logMessage);
     }
 
+    /**
+     * Get driver for correct thread
+     *
+     * @return - WebDriver
+     */
+    public synchronized WebDriver getDriver() {
+        return this.driver.get();
+    }
 
     /**
      * To launch the given URL
      *
-     * @param url
-     * @param logMessage
+     * @param url        - URL string
+     * @param logMessage - Message for logging
      */
     public void get(String url, String logMessage) {
         getDriver().get(url);
@@ -65,7 +69,7 @@ public class CoreSelenium {
     /**
      * To click the locator on the page
      *
-     * @param locator - The locator By object
+     * @param locator - By element locator
      */
     public void click(By locator) {
         click(locator, null, null, null);
@@ -74,8 +78,8 @@ public class CoreSelenium {
     /**
      * To click the locator on the page
      *
-     * @param locator
-     * @param logMessage
+     * @param locator    - By element locator
+     * @param logMessage - Message for logging
      */
     public void click(By locator, String logMessage) {
         click(locator, logMessage, null, null);
@@ -84,9 +88,9 @@ public class CoreSelenium {
     /**
      * To click the locator on the page
      *
-     * @param locator
-     * @param logMessage
-     * @param maxWaitTime
+     * @param locator     - By element locator
+     * @param logMessage  - Message for logging
+     * @param maxWaitTime - The Max wait time
      */
     public void click(By locator, String logMessage, Integer maxWaitTime) {
         click(locator, logMessage, maxWaitTime, null);
@@ -95,10 +99,10 @@ public class CoreSelenium {
     /**
      * To click the locator on the page
      *
-     * @param locator
-     * @param logMessage
-     * @param maxWaitTime
-     * @param pollTime
+     * @param locator     - By element locator
+     * @param logMessage  - Message for logging
+     * @param maxWaitTime - The Max wait time
+     * @param pollTime    - Poll interval
      */
     public void click(By locator, String logMessage, Integer maxWaitTime, Integer pollTime) {
         this.waitUntilElementToBeClickable(locator, maxWaitTime, pollTime).click();
@@ -108,8 +112,8 @@ public class CoreSelenium {
     /**
      * To click the locator on the page
      *
-     * @param locator
-     * @param logMessage
+     * @param locator    - By element locator
+     * @param logMessage - Message for logging
      */
     public void clickRadioButton(By locator, String logMessage) {
         clickRadioButton(locator, logMessage, null, null);
@@ -118,9 +122,9 @@ public class CoreSelenium {
     /**
      * To click a radion button by the locator on the page
      *
-     * @param locator
-     * @param logMessage
-     * @param maxWaitTime
+     * @param locator     - By element locator
+     * @param logMessage  - Message for logging
+     * @param maxWaitTime - The Max wait time
      */
     public void clickRadioButton(By locator, String logMessage, Integer maxWaitTime) {
         clickRadioButton(locator, logMessage, maxWaitTime, null);
@@ -129,10 +133,10 @@ public class CoreSelenium {
     /**
      * To click a radion button by the locator on the page
      *
-     * @param locator
-     * @param logMessage
-     * @param maxWaitTime
-     * @param pollTime
+     * @param locator     - By element locator
+     * @param logMessage  - Message for logging
+     * @param maxWaitTime - The Max wait time
+     * @param pollTime    - Poll interval
      */
     public void clickRadioButton(By locator, String logMessage, Integer maxWaitTime, Integer pollTime) {
         Actions action = new Actions(getDriver());
@@ -144,20 +148,35 @@ public class CoreSelenium {
     /**
      * To enter value in the text field
      *
-     * @param locator
-     * @param valueToEnter
-     * @param clear
-     * @param logStep
-     * @param logMessage
+     * @param locator      - By element locator
+     * @param valueToEnter - Text to enter
+     * @param clear        - To clear field
+     * @param logMessage   - Message for logging
      */
     public void sendKeys(By locator, String valueToEnter, boolean clear, String logStep, String logMessage) {
         sendKeys(locator, valueToEnter, clear, logMessage, null, null);
     }
 
+    /**
+     * To enter value in the text field
+     *
+     * @param locator      - By element locator
+     * @param valueToEnter - Text to enter
+     * @param logMessage   - Message for logging
+     */
     public void sendKeys(By locator, String valueToEnter, String logMessage) {
         sendKeys(locator, valueToEnter, true, logMessage, null, null);
     }
 
+    /**
+     * To enter value in the text field
+     *
+     * @param locator      - By element locator
+     * @param valueToEnter - Text to enter
+     * @param logMessage   - Message for logging
+     * @param maxWaitTime  - The Max wait time
+     * @param pollTime     - Poll interval
+     */
     public void sendKeys(By locator, String valueToEnter, String logMessage,
                          Integer maxWaitTime, Integer pollTime) {
         sendKeys(locator, valueToEnter, true, logMessage, maxWaitTime, pollTime);
@@ -166,12 +185,12 @@ public class CoreSelenium {
     /**
      * To enter value in the text field
      *
-     * @param locator
-     * @param valueToEnter
-     * @param clear
-     * @param logMessage
-     * @param maxWaitTime
-     * @param pollTime
+     * @param locator      - By element locator
+     * @param valueToEnter - Text to enter
+     * @param clear        - To clear field
+     * @param logMessage   - Message for logging
+     * @param maxWaitTime  - The Max wait time
+     * @param pollTime     - Poll interval
      */
     public void sendKeys(By locator, String valueToEnter, boolean clear,
                          String logMessage, Integer maxWaitTime, Integer pollTime) {
@@ -189,9 +208,9 @@ public class CoreSelenium {
     /**
      * To check If Element is found on the page or not.
      *
-     * @param locator     - The locator to search for
+     * @param locator     - By element locator
      * @param maxWaitTime - The Max wait time
-     * @param pollTime    - The poll time
+     * @param pollTime    - Poll interval
      * @return - true-if element is found else false.
      */
     public boolean isElementFound(final By locator, Integer maxWaitTime, Integer pollTime) {
@@ -214,13 +233,19 @@ public class CoreSelenium {
     /**
      * To check if Element is visible or not
      *
-     * @param locator
-     * @return
+     * @param locator - By element locator
+     * @return - true - if visible, false - if not visible
      */
     public boolean isElementVisible(By locator) {
         return isElementVisible(locator, null, null);
     }
 
+    /**
+     * To check if Element is found in the DOM
+     *
+     * @param locator - By element locator
+     * @return - true - if found, false - if not found
+     */
     public boolean isElementFound(By locator) {
         return isElementFound(locator, maxWaitTime, pollTime);
     }
@@ -228,10 +253,10 @@ public class CoreSelenium {
     /**
      * To check if Element is visible or not
      *
-     * @param locator
-     * @param maxWaitTime
-     * @param pollTime
-     * @return
+     * @param locator     - By element locator
+     * @param maxWaitTime - The Max wait time
+     * @param pollTime    - Poll interval
+     * @return - true - if visible, false - if not visible
      */
     public boolean isElementVisible(By locator, Integer maxWaitTime, Integer pollTime) {
         try {
@@ -245,10 +270,10 @@ public class CoreSelenium {
     /**
      * To check if the Element is clickable or not
      *
-     * @param locator
-     * @param maxWaitTime
-     * @param pollTime
-     * @return
+     * @param locator     - By element locator
+     * @param maxWaitTime - The Max wait time
+     * @param pollTime    - Poll interval
+     * @return - true - if clickable, false - if not clickable
      */
     public boolean isElementClickable(By locator, Integer maxWaitTime, Integer pollTime) {
         try {
@@ -262,7 +287,7 @@ public class CoreSelenium {
     /**
      * To wait until element to be clickable on the page
      *
-     * @param locator - The Locator
+     * @param locator - By element locator
      * @return - true - if clickable, false - if not clickable
      */
     public WebElement waitUntilElementToBeClickable(By locator) {
@@ -272,10 +297,10 @@ public class CoreSelenium {
     /**
      * To wait until element to be clickable on the page
      *
-     * @param locator
-     * @param maxWaitTime
-     * @param pollTime
-     * @return
+     * @param locator     - By element locator
+     * @param maxWaitTime - The Max wait time
+     * @param pollTime    - Poll interval
+     * @return - Clickable WebElement
      */
     public WebElement waitUntilElementToBeClickable(By locator, Integer maxWaitTime, Integer pollTime) {
         this.getWait(maxWaitTime, pollTime).until(ExpectedConditions.elementToBeClickable(locator));
@@ -285,8 +310,8 @@ public class CoreSelenium {
     /**
      * To find the element on the page
      *
-     * @param locator
-     * @return
+     * @param locator - By element locator
+     * @return - WebElement
      */
     public WebElement findElement(By locator) {
         return getDriver().findElement(locator);
@@ -295,8 +320,8 @@ public class CoreSelenium {
     /**
      * To find the elements on the page
      *
-     * @param locator
-     * @return
+     * @param locator - By element locator
+     * @return - List of WebElements
      */
     public List<WebElement> findElements(By locator) {
         return getDriver().findElements(locator);
@@ -305,10 +330,10 @@ public class CoreSelenium {
     /**
      * To find the element on the page
      *
-     * @param locator
-     * @param maxWaitTime
-     * @param pollTime
-     * @return
+     * @param locator     - By element locator
+     * @param maxWaitTime - The Max wait time
+     * @param pollTime    - Poll interval
+     * @return - WebElement
      */
     public WebElement findElement(By locator, Integer maxWaitTime, Integer pollTime) {
         if (isElementFound(locator, maxWaitTime, pollTime)) {
@@ -321,8 +346,8 @@ public class CoreSelenium {
     /**
      * To get the 'Wait' object with the given Maximum Wait Time and Poll Time.
      *
-     * @param maxWaitTime - The Maximum Wait Time
-     * @param pollTime    - The Poll Time
+     * @param maxWaitTime - The Max wait time
+     * @param pollTime    - Poll interval
      * @return - The Wait object
      */
     private Wait<WebDriver> getWait(Integer maxWaitTime, Integer pollTime) {
@@ -338,15 +363,34 @@ public class CoreSelenium {
                 .ignoring(NoSuchElementException.class);
     }
 
+    /**
+     * Click element using javascript
+     *
+     * @param element    - Web element
+     * @param logMessage - Message for logging
+     */
     public void jsClick(WebElement element, String logMessage) {
         JavascriptExecutor javaScriptExecutor = (JavascriptExecutor) getDriver();
         javaScriptExecutor.executeScript("arguments[0].click();", element);
         log(logMessage);
     }
 
+    /**
+     * Click element using javascript
+     *
+     * @param element - Web element
+     */
     public void jsClick(WebElement element) {
         jsClick(element, null);
     }
+
+    /**
+     * Wait till element is clickable and return it
+     *
+     * @param maxWaitTime - The Max wait time -
+     * @param pollTime    - Poll interval
+     * @return - Clickable WebElement
+     */
 
     public WebElement waitForElementToBeClickable(By locator, Integer maxWaitTime, Integer pollTime) {
         try {
@@ -360,10 +404,10 @@ public class CoreSelenium {
     /**
      * Wait for element to be found on the page
      *
-     * @param locator
-     * @param maxWaitTime
-     * @param pollTime
-     * @return
+     * @param locator     - By element locator
+     * @param maxWaitTime - The Max wait time
+     * @param pollTime    - Poll interval
+     * @return - WebElement
      */
     public WebElement waitForElementToBeFound(By locator, Integer maxWaitTime, Integer pollTime) {
         try {
@@ -377,8 +421,8 @@ public class CoreSelenium {
     /**
      * Wait for element to be found on the page
      *
-     * @param locator
-     * @return
+     * @param locator - By element locator
+     * @return - WebElement
      */
     public WebElement waitForElementToBeFound(By locator) {
         return waitForElementToBeFound(locator, null, null);
@@ -387,10 +431,10 @@ public class CoreSelenium {
     /**
      * Wait for element to be visible on the page
      *
-     * @param locator
-     * @param maxWaitTime
-     * @param pollTime
-     * @return
+     * @param locator     - By element locator
+     * @param maxWaitTime - The Max wait time
+     * @param pollTime    - Poll interval
+     * @return - Visible WebElement
      */
     public WebElement waitForElementToBeVisible(By locator, Integer maxWaitTime, Integer pollTime) {
         try {
@@ -404,10 +448,10 @@ public class CoreSelenium {
     /**
      * Wait for element to be clickable on the page
      *
-     * @param element
-     * @param maxWaitTime
-     * @param pollTime
-     * @return
+     * @param element     - By element locator
+     * @param maxWaitTime - The Max wait time
+     * @param pollTime    - Poll interval
+     * @return - Clickable WebElement
      */
     public WebElement waitForElementToBeClickable(WebElement element, Integer maxWaitTime, Integer pollTime) {
         try {
@@ -421,10 +465,10 @@ public class CoreSelenium {
     /**
      * Wait for element to be inVisible on the page
      *
-     * @param locator
-     * @param maxWaitTime
-     * @param pollTime
-     * @return
+     * @param locator     - By element locator
+     * @param maxWaitTime - The Max wait time
+     * @param pollTime    - Poll interval
+     * @return - Invisible WebElement
      */
     public WebElement waitForElementToBeInVisible(By locator, Integer maxWaitTime, Integer pollTime) {
         try {
@@ -438,10 +482,10 @@ public class CoreSelenium {
     /**
      * Wait for element to be inVisible on the page
      *
-     * @param element
-     * @param maxWaitTime
-     * @param pollTime
-     * @return
+     * @param element     - WebElement
+     * @param maxWaitTime - The Max wait time
+     * @param pollTime    - Poll interval
+     * @return - Invisible WebElement
      */
     public WebElement waitForElementToBeInVisible(WebElement element, Integer maxWaitTime, Integer pollTime) {
         try {
@@ -452,61 +496,76 @@ public class CoreSelenium {
         }
     }
 
+    /**
+     * Wait for element to be invisible and return it
+     *
+     * @param locator - By element locator
+     * @return - Invisible WebElement
+     */
     public WebElement waitForElementToBeInVisible(By locator) {
         return waitForElementToBeInVisible(locator, null, null);
     }
 
+    /**
+     * Wait for element to be invisible and return it
+     *
+     * @param element - WebElement
+     * @return - Invisible WebElement
+     */
     public WebElement waitForElementToBeInVisible(WebElement element) {
         return waitForElementToBeInVisible(element, null, null);
     }
 
-    /*
-     * Wait for element to be clickable
+    /**
+     * Wait for element to be invisible and return it
+     *
+     * @param locator - By element locator
+     * @return - Clickable WebElement
      */
     public WebElement waitForElementToBeClickable(By locator) {
         return waitForElementToBeClickable(locator, null, null);
     }
 
     /**
-     * Wait for element to be visible on the page
+     * Wait for element to be visible on the page and return it
      *
-     * @param locator
-     * @return
+     * @param locator - By element locator
+     * @return - Visible WebElement
      */
     public WebElement waitForElementToBeVisible(By locator) {
         return waitForElementToBeVisible(locator, null, null);
     }
 
     /**
-     * Wait for element to be visible on the page
+     * Wait for element to be clickable on the page
      *
-     * @param element
-     * @return
+     * @param element - WebElement
+     * @return - Clickable WebElement
      */
     public WebElement waitForElementToBeClickable(WebElement element) {
         return waitForElementToBeClickable(element, null, null);
     }
 
     /**
-     * To select the drop down
+     * To return dropdown (select)
      *
-     * @param locator
-     * @param maxWaitTime
-     * @param pollTime
-     * @return
+     * @param locator     - By element locator
+     * @param maxWaitTime - The Max wait time
+     * @param pollTime    - Poll interval
+     * @return - Selenium's select object
      */
     private Select select(By locator, Integer maxWaitTime, Integer pollTime) {
         return new Select(this.waitForElementToBeVisible(locator, maxWaitTime, pollTime));
     }
 
     /**
-     * Select drop down by value
+     * Select dropdown by value
      *
-     * @param locator
-     * @param value
-     * @param logMessage
-     * @param maxWaitTime
-     * @param pollTime
+     * @param locator     - By element locator
+     * @param value       - Value to select
+     * @param logMessage  - Message for logging
+     * @param maxWaitTime - The Max wait time
+     * @param pollTime    - Poll interval
      */
     public void selectByValue(By locator, String value, String logMessage, Integer maxWaitTime, Integer pollTime) {
         this.select(locator, maxWaitTime, pollTime).selectByValue(value);
@@ -516,11 +575,11 @@ public class CoreSelenium {
     /**
      * Select drop down by visible text
      *
-     * @param locator
-     * @param visibleText
-     * @param logMessage
-     * @param maxWaitTime
-     * @param pollTime
+     * @param locator     - By element locator
+     * @param visibleText - Text to select
+     * @param logMessage  - Message for logging
+     * @param maxWaitTime - The Max wait time
+     * @param pollTime    - Poll interval
      */
     public void selectByVisibleText(By locator, String visibleText, String logMessage, Integer maxWaitTime, Integer pollTime) {
         this.select(locator, maxWaitTime, pollTime).selectByVisibleText(visibleText);
@@ -530,81 +589,185 @@ public class CoreSelenium {
     /**
      * Select drop down by given index
      *
-     * @param locator
-     * @param index
-     * @param logMessage
-     * @param maxWaitTime
-     * @param pollTime
+     * @param locator     - By element locator
+     * @param index       - Index in dropdown
+     * @param logMessage  - Message for logging
+     * @param maxWaitTime - The Max wait time
+     * @param pollTime    - Poll interval
      */
     public void selectByIndex(By locator, Integer index, String logMessage, Integer maxWaitTime, Integer pollTime) {
         this.select(locator, maxWaitTime, pollTime).selectByIndex(index);
         logger.info(logMessage);
     }
 
+    /**
+     * Get text from WebElement
+     *
+     * @param locator     - By element locator
+     * @param maxWaitTime - The Max wait time
+     * @param pollTime    - Poll interval
+     * @return - String present in the element
+     */
     public String getText(By locator, Integer maxWaitTime, Integer pollTime) {
         return this.getWait(maxWaitTime, pollTime).until(ExpectedConditions.presenceOfElementLocated(locator)).getText();
     }
 
+    /**
+     * Get text from WebElement
+     *
+     * @param locator - By element locator
+     * @return - String present in the element
+     */
     public String getText(By locator) {
         return getText(locator, null, null);
     }
 
+    /**
+     * Get text from HTML attribute
+     *
+     * @param locator       - By element locator
+     * @param attributeName - Name of HTML attribute
+     * @return - String present in the attribute
+     */
     public String getAttribute(By locator, String attributeName) {
         return getAttribute(locator, attributeName, null, null);
     }
 
+    /**
+     * Get text from HTML attribute
+     *
+     * @param locator       - By element locator
+     * @param attributeName - Name of HTML attribute
+     * @param maxWaitTime   - The Max wait time
+     * @param pollTime      - Poll interval
+     * @return - String present in the attribute
+     */
     public String getAttribute(By locator, String attributeName, Integer maxWaitTime, Integer pollTime) {
         return this.getWait(maxWaitTime, pollTime).until(ExpectedConditions.presenceOfElementLocated(locator)).getAttribute(attributeName);
     }
 
+    /**
+     * Switch WebDriver focus to the frame by locator
+     *
+     * @param locator     - By element locator
+     * @param maxWaitTime - The Max wait time
+     * @param pollTime    - Poll interval
+     * @return - WebDriver with focus to the frame
+     */
     public WebDriver switchToFrame(By locator, Integer maxWaitTime, Integer pollTime) {
         return getDriver().switchTo().frame(this.waitForElementToBeFound(locator, maxWaitTime, pollTime));
     }
 
+    /**
+     * Switch WebDriver focus to the frame by locator
+     *
+     * @param locator - By element locator
+     * @return - WebDriver with focus to the frame
+     */
     public WebDriver switchToFrame(By locator) {
         return switchToFrame(locator, null, null);
     }
 
+    /**
+     * Switch WebDriver focus to the frame by name
+     *
+     * @param name - Name of the frame
+     * @return - WebDriver with focus to the frame
+     */
     public WebDriver switchToFrame(String name) {
         return getDriver().switchTo().frame(name);
     }
 
+    /**
+     * Switch WebDriver focus to the parent frame
+     *
+     * @return - WebDriver with focus to the parent frame
+     */
     public WebDriver switchToParentFrame() {
         return getDriver().switchTo().parentFrame();
     }
 
+    /**
+     * Switch WebDriver focus to the top (main) frame
+     *
+     * @return - WebDriver with focus to top (main) frame
+     */
     public WebDriver switchToDefaultContent() {
         return getDriver().switchTo().defaultContent();
     }
 
+    /**
+     * Switch WebDriver focus to the frame by ID
+     *
+     * @param id - ID of the frame
+     * @return - WebDriver with focus the frame
+     */
+    public WebDriver switchFrameById(String id) {
+        return getDriver().switchTo().frame(id);
+    }
+
+    /**
+     * Switch WebDriver focus to the frame by index
+     *
+     * @param index - index of the frame
+     * @return - WebDriver with focus the frame
+     */
+    public WebDriver switchFrameByIndex(int index) {
+        return getDriver().switchTo().frame(index);
+    }
+
+    /**
+     * Close window (tab)
+     */
     public synchronized void closeDriver() {
         getDriver().close();
     }
 
+    /**
+     * Close the browser
+     */
     public synchronized void quitDriver() {
         getDriver().quit();
     }
 
+    /**
+     * Scroll to page top
+     */
     public void scrollTop() {
         JavascriptExecutor javaScriptExecutor = (JavascriptExecutor) getDriver();
         javaScriptExecutor.executeScript("window.scrollTo(0,0)");
     }
 
+    /**
+     * Scroll down 250 pixels
+     */
     public void scrollDown() {
         JavascriptExecutor javaScriptExecutor = (JavascriptExecutor) getDriver();
         javaScriptExecutor.executeScript("window.scrollTo(0,250)");
     }
 
+    /**
+     * Zoom out to 67%
+     */
     public void zoomOut() {
         JavascriptExecutor executor = (JavascriptExecutor) getDriver();
         executor.executeScript("document.body.style.zoom = '67%'");
     }
 
+    /**
+     * Wait for file to be downloaded
+     *
+     * @param downloadDir - Directory to download
+     * @param fileName    - Name of the file
+     */
     public void waitDownloading(String downloadDir, String fileName) {
         Path dowloadFilePath = Paths.get(downloadDir, fileName);
         new WebDriverWait(getDriver(), 100).until(d -> dowloadFilePath.toFile().exists());
     }
 
+    /**
+     * Scroll to the complete bottom of the page
+     */
     public void scrollToBottom() {
         ((JavascriptExecutor) driver.get()).executeScript("window.scrollTo(0, document.body.scrollHeight)");
     }
@@ -612,10 +775,10 @@ public class CoreSelenium {
     /**
      * To return the UI attribute on an element on UI
      *
-     * @param element
-     * @param attributeName
-     * @param logMessage
-     * @return UI attribute
+     * @param element       - By element locator
+     * @param attributeName - Name of the attribute
+     * @param logMessage    - Message for logging
+     * @return UI attribute - UI attribute text
      */
     public String getUiAttribute(By element, String attributeName, String logMessage) {
         waitForElementToBeFound(element);
@@ -625,11 +788,11 @@ public class CoreSelenium {
     /**
      * To return the UI attribute on an element on UI
      *
-     * @param element
-     * @param attributeName
-     * @param logMessage
-     * @param pollTime
-     * @return
+     * @param element       - By element locator
+     * @param attributeName - Name of the attribute
+     * @param logMessage    - Message for logging
+     * @param pollTime      - Poll interval
+     * @return - UI attribute text
      */
     public String getUiAttribute(By element, String attributeName, String logMessage, Integer pollTime) {
         String attributeProperty = getDriver().findElement(element).getCssValue(attributeName);
@@ -641,22 +804,14 @@ public class CoreSelenium {
         }
     }
 
-    public void switchFrameById(String id) {
-        getDriver().switchTo().frame(id);
-    }
-
-    public void switchFrameByIndex(int index) {
-        getDriver().switchTo().frame(index);
-    }
-
-
     /**
      * To check if element has some text
      *
-     * @param locator
-     * @param text
-     * @param maxWaitTime
-     * @param pollTime
+     * @param locator     - By element locator
+     * @param text        - Text to look for
+     * @param maxWaitTime - The Max wait time
+     * @param pollTime    - Poll interval
+     * @return - true if element contains text, false if not
      */
     public boolean doesElementContainText(By locator, String text, Integer maxWaitTime, Integer pollTime) {
         try {
@@ -674,12 +829,12 @@ public class CoreSelenium {
     /**
      * To check if element has some text in whole html
      *
-     * @param locator
-     * @param text
-     * @param maxWaitTime
-     * @param pollTime
+     * @param locator     - By element locator
+     * @param text        - Text to look for
+     * @param maxWaitTime - The Max wait time
+     * @param pollTime    - Poll interval
+     * @return - true if html contains text, false if not
      */
-
     public boolean doesElementContainTextHTML(By locator, String text, Integer maxWaitTime, Integer pollTime) {
         try {
             if (isElementFound(locator, maxWaitTime, pollTime)) {
@@ -696,9 +851,10 @@ public class CoreSelenium {
     /**
      * To check if URL has some text
      *
-     * @param text
-     * @param maxWaitTime
-     * @param pollTime
+     * @param text        - Text to look for
+     * @param maxWaitTime - The Max wait time
+     * @param pollTime    - Poll interval
+     * @return - true if url contains text, false if not
      */
     public boolean doesUrlContainText(String text, Integer maxWaitTime, Integer pollTime) {
         try {
@@ -720,9 +876,10 @@ public class CoreSelenium {
     /**
      * To check if whole page has some text
      *
-     * @param text
-     * @param maxWaitTime
-     * @param pollTime
+     * @param text        - Text to look for
+     * @param maxWaitTime - The Max wait time
+     * @param pollTime    - Poll interval
+     * @return - true if page contains text, false if not
      */
     public boolean doesPageContainText(String text, Integer maxWaitTime, Integer pollTime) {
         try {
@@ -785,6 +942,11 @@ public class CoreSelenium {
         }
     }
 
+    /**
+     * Scroll till the element is in the view
+     *
+     * @param webElement - WebElement
+     */
     public void scrollIntoView(WebElement webElement) {
         ((JavascriptExecutor) this.getDriver()).executeScript("arguments[0].scrollIntoView(true);", webElement);
         waitForElementToBeClickable(webElement);
@@ -799,6 +961,9 @@ public class CoreSelenium {
         }
     }
 
+    /**
+     * Wait for two seconds
+     */
     public void waitTwoSeconds() {
         try {
             Thread.sleep(2000);
