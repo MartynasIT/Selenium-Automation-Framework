@@ -4,7 +4,7 @@ import com.automation.legoProject.base.BaseTest;
 import com.automation.legoProject.pageObjects.CartPage;
 import com.automation.legoProject.pageObjects.MainPage;
 import com.automation.legoProject.pageObjects.ProductSearchResultPage;
-import com.framework.utils.ArrayWorker;
+import com.automation.framework.utils.ArrayWorker;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

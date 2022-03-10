@@ -1,6 +1,6 @@
 package com.automation.legoProject.base;
 
-import com.framework.utils.CoreSelenium;
+import com.automation.framework.utils.CoreSelenium;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

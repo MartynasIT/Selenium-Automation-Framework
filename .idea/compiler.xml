@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="orion" />
+        <module name="Selenium-Automation-Framework" />
         <module name="UI Automation" />
       </profile>
     </annotationProcessing>

@@ -2,10 +2,10 @@ package com.automation.legoProject.base;
 
 import com.automation.legoProject.pageObjects.CartPage;
 import com.automation.legoProject.pageObjects.ProductSearchResultPage;
-import com.framework.driver.DriverFactory;
-import com.framework.driver.DriverManager;
-import com.framework.utils.CoreSelenium;
-import com.framework.utils.JsonReader;
+import com.automation.framework.driver.DriverFactory;
+import com.automation.framework.driver.DriverManager;
+import com.automation.framework.utils.CoreSelenium;
+import com.automation.framework.utils.JsonReader;
 import com.automation.legoProject.pageComponents.HeaderMenu;
 import com.automation.legoProject.pageObjects.MainPage;
 import org.apache.logging.log4j.LogManager;

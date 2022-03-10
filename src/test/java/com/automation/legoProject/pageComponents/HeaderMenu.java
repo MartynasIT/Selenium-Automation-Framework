@@ -1,6 +1,6 @@
 package com.automation.legoProject.pageComponents;
 
-import com.framework.utils.CoreSelenium;
+import com.automation.framework.utils.CoreSelenium;
 import com.automation.legoProject.base.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;

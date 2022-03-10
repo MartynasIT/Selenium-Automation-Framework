@@ -1,7 +1,7 @@
 package com.automation.legoProject.pageObjects;
 
 import com.automation.legoProject.base.BasePage;
-import com.framework.utils.CoreSelenium;
+import com.automation.framework.utils.CoreSelenium;
 import org.openqa.selenium.By;
 
 public class ProductInfoPage extends BasePage {
