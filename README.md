@@ -11,4 +11,3 @@
 
 Target Java version is 11. Change <maven.compiler.target>11</maven.compiler.target> in pom.xml to your choice of Java.
 If new java downloaded don't forget to create enviroment variables in Windows.
-
