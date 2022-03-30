@@ -1,4 +1,4 @@
-package com.framework.utils;
+package com.automation.framework.utils;
 
 import java.util.Locale;
 
