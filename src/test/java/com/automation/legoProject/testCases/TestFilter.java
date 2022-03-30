@@ -8,6 +8,10 @@ import com.automation.framework.utils.ArrayWorker;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+
 
 public class TestFilter extends BaseTest {
     LegoNavigator navigator;
@@ -50,8 +54,8 @@ public class TestFilter extends BaseTest {
     }
 
 
-    private class LegoOrderInfo {
-        private boolean isFilterSatisfied(String name, String price, String[][] products) {
+    public class LegoOrderInfo {
+        public boolean isFilterSatisfied(String name, String price, String[][] products) {
             for (String[] product : products) {
                 String productName = product[0].trim();
                 String productPrice = product[1].
@@ -81,6 +85,7 @@ public class TestFilter extends BaseTest {
         private double calculateOrderTotalOfItemsAdded(String[][] products, double shipping) {
             double total = 0;
             for (String[] product : products) {
+                DecimalFormat df = new DecimalFormat("#.#####");
                 String productPrice = product[1].
                         replace("Price", "").
                         replace("Sale Price", "").
@@ -89,7 +94,10 @@ public class TestFilter extends BaseTest {
                         trim();
                 total += Double.parseDouble(productPrice);
             }
-            return total + shipping;
+            total = BigDecimal.valueOf(total + shipping)
+                    .setScale(2, RoundingMode.HALF_UP)
+                    .doubleValue();
+            return total;
         }
     }
 }
