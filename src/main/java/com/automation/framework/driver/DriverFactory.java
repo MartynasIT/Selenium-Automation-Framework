@@ -9,7 +9,6 @@ public class DriverFactory {
 
     public static DriverManager getDriverManager() {
         DriverManager driverManager;
-
         String browser = System.getProperty("browser");
         if (browser == null)
             browser = "Edge";

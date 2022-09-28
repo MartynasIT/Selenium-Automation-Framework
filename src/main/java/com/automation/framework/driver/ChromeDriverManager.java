@@ -1,6 +1,8 @@
 package com.automation.framework.driver;
 
 import com.automation.framework.utils.SystemUtil;
+import io.github.bonigarcia.wdm.WebDriverManager;
+import io.github.bonigarcia.wdm.config.OperatingSystem;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class ChromeDriverManager extends DriverManager {
@@ -10,13 +12,13 @@ public class ChromeDriverManager extends DriverManager {
         SystemUtil.OSType os = SystemUtil.getOperatingSystemType();
         switch (os) {
             case WINDOWS:
-                System.setProperty("webdriver.chrome.driver", CHROME_DRIVER_WIN);
+                WebDriverManager.chromedriver().operatingSystem(OperatingSystem.WIN).setup();
                 break;
             case MACOS:
-                System.setProperty("webdriver.chrome.driver", CHROME_DRIVER_MAC);
+                WebDriverManager.chromedriver().operatingSystem(OperatingSystem.MAC).setup();
                 break;
             case LINUX:
-                System.setProperty("webdriver.chrome.driver", CHROME_DRIVER_LINUX);
+                WebDriverManager.chromedriver().operatingSystem(OperatingSystem.LINUX).setup();
                 break;
             default:
                 throw new RuntimeException("Unsupported OS");

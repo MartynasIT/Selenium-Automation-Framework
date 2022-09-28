@@ -5,3 +5,10 @@
 *.log
 /Reports/
 
+/target/test-classes/
+/target/classes/
+/target/cucumber-logs/
+/target/generated-sources/
+/target/generated-test-sources/
+/target/maven-status/
+/target/test-classes/
