@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Lego page tests" parallel="tests" thread-count="2">
+    <listeners>
+        <listener class-name="com.automation.framework.listeners.TestListener"/>
+        <listener class-name="com.automation.framework.listeners.AnnotationTransformer"/>
+    </listeners>
+
     <test name="Test filter and cart">
         <parameter name="testDataPath" value="src/test/resources/TestData/DataKeyChainSearch.json"/>
         <classes>
-            <class name="com.automation.legoProject.testCases.TestFilter">
+            <class name="com.automation.legoproject.testcases.TestFilter">
                 <methods>
                     <include name="testFilterAndBasket"/>
                 </methods>
@@ -15,7 +20,7 @@
     <test name="Test search">
         <parameter name="testDataPath" value="src/test/resources/TestData/DataSearch.json"/>
         <classes>
-            <class name="com.automation.legoProject.testCases.TestSearch">
+            <class name="com.automation.legoproject.testcases.TestSearch">
                 <methods>
                     <include name="testSearchSuggestion"/>
                 </methods>

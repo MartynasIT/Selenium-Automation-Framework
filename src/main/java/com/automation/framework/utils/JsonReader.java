@@ -14,33 +14,35 @@ public class JsonReader {
     @Getter
     @Setter
     private JSONObject jsonObject;
+    JSONParser parser;
 
     public JsonReader(String path) {
         this.path = path;
+        parser = new JSONParser();
         if (path.contains(".json"))
             parseFromFile();
         else
             parseFromString();
     }
 
-    public void parseFromFile() {
+    public JsonReader parseFromFile() {
         try {
-            JSONParser parser = new JSONParser();
-            setJsonObject((JSONObject) parser.parse(new FileReader(path)));
+            setJsonObject((JSONObject) parser.parse(SystemUtil.readFile(path)));
         } catch (IOException e) {
             e.printStackTrace();
         } catch (ParseException e) {
             throw new RuntimeException("Problem reading JSON file");
         }
+        return this;
     }
 
-    public void parseFromString() {
+    public JsonReader parseFromString() {
         try {
-            JSONParser parser = new JSONParser();
             setJsonObject((JSONObject) parser.parse(path));
         } catch (ParseException e) {
             throw new RuntimeException("Problem reading JSON string");
         }
+        return this;
     }
 
     public JSONObject returnJsonObject() {

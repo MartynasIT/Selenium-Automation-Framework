@@ -21,7 +21,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.*;
 
-
 public class CoreSelenium {
 
     private final ThreadLocal<WebDriver> driver = new ThreadLocal<WebDriver>();

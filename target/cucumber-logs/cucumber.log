@@ -1,73 +1,93 @@
-[[36mDEBUG[m] 2022-03-30 12:53:38,084 InternalLoggerFactory.useLog4J2LoggerFactory() - Using Log4J2 as the default logging framework
-[[36mDEBUG[m] 2022-03-30 12:53:38,099 ResourceLeakDetector.<clinit>() - -Dio.netty.leakDetection.level: simple
-[[36mDEBUG[m] 2022-03-30 12:53:38,099 ResourceLeakDetector.<clinit>() - -Dio.netty.leakDetection.targetRecords: 4
-[[36mDEBUG[m] 2022-03-30 12:53:38,099 ResourceLeakDetectorFactory.newResourceLeakDetector() - Loaded default ResourceLeakDetector: io.netty.util.ResourceLeakDetector@7d6aee7f
-[[36mDEBUG[m] 2022-03-30 12:53:38,115 PlatformDependent0.explicitNoUnsafeCause0() - -Dio.netty.noUnsafe: false
-[[36mDEBUG[m] 2022-03-30 12:53:38,115 PlatformDependent0.javaVersion0() - Java version: 16
-[[36mDEBUG[m] 2022-03-30 12:53:38,115 PlatformDependent0.<clinit>() - sun.misc.Unsafe.theUnsafe: available
-[[36mDEBUG[m] 2022-03-30 12:53:38,115 PlatformDependent0.<clinit>() - sun.misc.Unsafe.copyMemory: available
-[[36mDEBUG[m] 2022-03-30 12:53:38,115 PlatformDependent0.<clinit>() - java.nio.Buffer.address: available
-[[36mDEBUG[m] 2022-03-30 12:53:38,131 PlatformDependent0.<clinit>() - direct buffer constructor: unavailable: Reflective setAccessible(true) disabled
-[[36mDEBUG[m] 2022-03-30 12:53:38,131 PlatformDependent0.<clinit>() - java.nio.Bits.unaligned: available, true
-[[36mDEBUG[m] 2022-03-30 12:53:38,131 PlatformDependent0.<clinit>() - jdk.internal.misc.Unsafe.allocateUninitializedArray(int): unavailable: class io.netty.util.internal.PlatformDependent0$6 cannot access class jdk.internal.misc.Unsafe (in module java.base) because module java.base does not export jdk.internal.misc to unnamed module @366e2eef
-[[36mDEBUG[m] 2022-03-30 12:53:38,131 PlatformDependent0.<clinit>() - java.nio.DirectByteBuffer.<init>(long, int): unavailable
-[[36mDEBUG[m] 2022-03-30 12:53:38,131 PlatformDependent.unsafeUnavailabilityCause0() - sun.misc.Unsafe: available
-[[36mDEBUG[m] 2022-03-30 12:53:38,131 PlatformDependent.maxDirectMemory0() - maxDirectMemory: 4211081216 bytes (maybe)
-[[36mDEBUG[m] 2022-03-30 12:53:38,131 PlatformDependent.tmpdir0() - -Dio.netty.tmpdir: C:\Users\mgelumb\AppData\Local\Temp (java.io.tmpdir)
-[[36mDEBUG[m] 2022-03-30 12:53:38,131 PlatformDependent.bitMode0() - -Dio.netty.bitMode: 64 (sun.arch.data.model)
-[[36mDEBUG[m] 2022-03-30 12:53:38,131 PlatformDependent.isWindows0() - Platform: Windows
-[[36mDEBUG[m] 2022-03-30 12:53:38,131 PlatformDependent.<clinit>() - -Dio.netty.maxDirectMemory: -1 bytes
-[[36mDEBUG[m] 2022-03-30 12:53:38,131 PlatformDependent.<clinit>() - -Dio.netty.uninitializedArrayAllocationThreshold: -1
-[[36mDEBUG[m] 2022-03-30 12:53:38,131 CleanerJava9.<clinit>() - java.nio.ByteBuffer.cleaner(): available
-[[36mDEBUG[m] 2022-03-30 12:53:38,131 PlatformDependent.<clinit>() - -Dio.netty.noPreferDirect: false
-[[36mDEBUG[m] 2022-03-30 12:53:38,131 PlatformDependent.<clinit>() - org.jctools-core.MpscChunkedArrayQueue: available
-[[36mDEBUG[m] 2022-03-30 12:53:38,162 InternalThreadLocalMap.<clinit>() - -Dio.netty.threadLocalMap.stringBuilder.initialSize: 1024
-[[36mDEBUG[m] 2022-03-30 12:53:38,162 InternalThreadLocalMap.<clinit>() - -Dio.netty.threadLocalMap.stringBuilder.maxSize: 4096
-[[36mDEBUG[m] 2022-03-30 12:53:38,302 JdkSslContext.<clinit>() - Default protocols (JDK): [TLSv1.3, TLSv1.2] 
-[[36mDEBUG[m] 2022-03-30 12:53:38,302 JdkSslContext.<clinit>() - Default cipher suites (JDK): [TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA, TLS_RSA_WITH_AES_128_GCM_SHA256, TLS_RSA_WITH_AES_128_CBC_SHA, TLS_RSA_WITH_AES_256_CBC_SHA, TLS_AES_128_GCM_SHA256, TLS_AES_256_GCM_SHA384]
-[[36mDEBUG[m] 2022-03-30 12:53:38,316 MultithreadEventLoopGroup.<clinit>() - -Dio.netty.eventLoopThreads: 16
-[[36mDEBUG[m] 2022-03-30 12:53:38,332 NioEventLoop.<clinit>() - -Dio.netty.noKeySetOptimization: false
-[[36mDEBUG[m] 2022-03-30 12:53:38,332 NioEventLoop.<clinit>() - -Dio.netty.selectorAutoRebuildThreshold: 512
-[[36mDEBUG[m] 2022-03-30 12:53:38,372 PooledByteBufAllocator.<clinit>() - -Dio.netty.allocator.numHeapArenas: 16
-[[36mDEBUG[m] 2022-03-30 12:53:38,372 PooledByteBufAllocator.<clinit>() - -Dio.netty.allocator.numDirectArenas: 16
-[[36mDEBUG[m] 2022-03-30 12:53:38,372 PooledByteBufAllocator.<clinit>() - -Dio.netty.allocator.pageSize: 8192
-[[36mDEBUG[m] 2022-03-30 12:53:38,372 PooledByteBufAllocator.<clinit>() - -Dio.netty.allocator.maxOrder: 11
-[[36mDEBUG[m] 2022-03-30 12:53:38,372 PooledByteBufAllocator.<clinit>() - -Dio.netty.allocator.chunkSize: 16777216
-[[36mDEBUG[m] 2022-03-30 12:53:38,372 PooledByteBufAllocator.<clinit>() - -Dio.netty.allocator.smallCacheSize: 256
-[[36mDEBUG[m] 2022-03-30 12:53:38,372 PooledByteBufAllocator.<clinit>() - -Dio.netty.allocator.normalCacheSize: 64
-[[36mDEBUG[m] 2022-03-30 12:53:38,372 PooledByteBufAllocator.<clinit>() - -Dio.netty.allocator.maxCachedBufferCapacity: 32768
-[[36mDEBUG[m] 2022-03-30 12:53:38,372 PooledByteBufAllocator.<clinit>() - -Dio.netty.allocator.cacheTrimInterval: 8192
-[[36mDEBUG[m] 2022-03-30 12:53:38,372 PooledByteBufAllocator.<clinit>() - -Dio.netty.allocator.cacheTrimIntervalMillis: 0
-[[36mDEBUG[m] 2022-03-30 12:53:38,372 PooledByteBufAllocator.<clinit>() - -Dio.netty.allocator.useCacheForAllThreads: true
-[[36mDEBUG[m] 2022-03-30 12:53:38,372 PooledByteBufAllocator.<clinit>() - -Dio.netty.allocator.maxCachedByteBuffersPerChunk: 1023
-[[36mDEBUG[m] 2022-03-30 12:53:38,372 ByteBufUtil.<clinit>() - -Dio.netty.allocator.type: pooled
-[[36mDEBUG[m] 2022-03-30 12:53:38,372 ByteBufUtil.<clinit>() - -Dio.netty.threadLocalDirectBufferSize: 0
-[[36mDEBUG[m] 2022-03-30 12:53:38,372 ByteBufUtil.<clinit>() - -Dio.netty.maxThreadLocalCharBufferSize: 16384
-[[36mDEBUG[m] 2022-03-30 12:53:40,384 DefaultChannelId.<clinit>() - -Dio.netty.processId: 238468 (auto-detected)
-[[36mDEBUG[m] 2022-03-30 12:53:40,384 NetUtil.<clinit>() - -Djava.net.preferIPv4Stack: false
-[[36mDEBUG[m] 2022-03-30 12:53:40,384 NetUtil.<clinit>() - -Djava.net.preferIPv6Addresses: false
-[[36mDEBUG[m] 2022-03-30 12:53:40,384 NetUtilInitializations.determineLoopback() - Loopback interface: lo (Software Loopback Interface 1, 127.0.0.1)
-[[36mDEBUG[m] 2022-03-30 12:53:40,384 NetUtil.run() - Failed to get SOMAXCONN from sysctl and file \proc\sys\net\core\somaxconn. Default: 200
-[[36mDEBUG[m] 2022-03-30 12:53:40,399 DefaultChannelId.<clinit>() - -Dio.netty.machineId: 0c:7a:15:ff:fe:e4:f0:c0 (auto-detected)
-[[36mDEBUG[m] 2022-03-30 12:53:40,456 AbstractByteBuf.<clinit>() - -Dio.netty.buffer.checkAccessible: true
-[[36mDEBUG[m] 2022-03-30 12:53:40,456 AbstractByteBuf.<clinit>() - -Dio.netty.buffer.checkBounds: true
-[[36mDEBUG[m] 2022-03-30 12:53:40,456 ResourceLeakDetectorFactory.newResourceLeakDetector() - Loaded default ResourceLeakDetector: io.netty.util.ResourceLeakDetector@6929e778
-[[36mDEBUG[m] 2022-03-30 12:53:40,491 Recycler.<clinit>() - -Dio.netty.recycler.maxCapacityPerThread: 4096
-[[36mDEBUG[m] 2022-03-30 12:53:40,491 Recycler.<clinit>() - -Dio.netty.recycler.ratio: 8
-[[36mDEBUG[m] 2022-03-30 12:53:40,491 Recycler.<clinit>() - -Dio.netty.recycler.chunkSize: 32
-[[36mDEBUG[m] 2022-03-30 12:53:40,491 Recycler.<clinit>() - -Dio.netty.recycler.blocking: false
-[[36mDEBUG[m] 2022-03-30 12:53:41,809 Brotli.<clinit>() - brotli4j not in the classpath; Brotli support will be unavailable.
-[[36mDEBUG[m] 2022-03-30 12:53:42,078 ThreadLocalRandom.newSeed() - -Dio.netty.initialSeedUniquifier: 0x2850a8e561a878d2
-[[32mINFO [m] 2022-03-30 12:53:42,335 BaseTest.setup() - Test Started
-[[32mINFO [m] 2022-03-30 12:53:42,862 BaseTest.setup() - Test Started
-[[32mINFO [m] 2022-03-30 12:53:47,868 CoreSelenium.log() - Launching website http://www.lego.com/en-us
-[[32mINFO [m] 2022-03-30 12:53:48,619 CoreSelenium.log() - Launching website http://www.lego.com/en-us
-[[32mINFO [m] 2022-03-30 12:53:49,992 CoreSelenium.log() - Clicking continue on pop up
-[[32mINFO [m] 2022-03-30 12:53:50,610 CoreSelenium.log() - Clicking continue on pop up
-[[32mINFO [m] 2022-03-30 12:53:50,849 CoreSelenium.log() - Clicking accept cookies
-[[32mINFO [m] 2022-03-30 12:53:50,878 BasePage.<init>() - Main Page was loaded successfully
-[[32mINFO [m] 2022-03-30 12:53:50,881 BaseTest.navigateToProductsKeychains() - Navigating to keychains
-[[32mINFO [m] 2022-03-30 12:53:51,222 CoreSelenium.log() - Clicking accept cookies
-[[32mINFO [m] 2022-03-30 12:53:51,277 BasePage.<init>() - Main Page was loaded successfully
-[[32mINFO [m] 2022-03-30 12:53:51,550 CoreSelenium.log() - Clicking on search icon
-[[32mINFO [m] 2022-03-30 12:53:52,037 CoreSelenium.log() - Clicking shop button
+[[36mDEBUG[m] 2022-09-28 15:03:15,340 InternalLoggerFactory.useLog4J2LoggerFactory() - Using Log4J2 as the default logging framework
+[[36mDEBUG[m] 2022-09-28 15:03:15,350 ResourceLeakDetector.<clinit>() - -Dio.netty.leakDetection.level: simple
+[[36mDEBUG[m] 2022-09-28 15:03:15,350 ResourceLeakDetector.<clinit>() - -Dio.netty.leakDetection.targetRecords: 4
+[[36mDEBUG[m] 2022-09-28 15:03:15,360 ResourceLeakDetectorFactory.newResourceLeakDetector() - Loaded default ResourceLeakDetector: io.netty.util.ResourceLeakDetector@2162fe83
+[[36mDEBUG[m] 2022-09-28 15:03:15,390 PlatformDependent0.explicitNoUnsafeCause0() - -Dio.netty.noUnsafe: false
+[[36mDEBUG[m] 2022-09-28 15:03:15,390 PlatformDependent0.javaVersion0() - Java version: 16
+[[36mDEBUG[m] 2022-09-28 15:03:15,390 PlatformDependent0.<clinit>() - sun.misc.Unsafe.theUnsafe: available
+[[36mDEBUG[m] 2022-09-28 15:03:15,390 PlatformDependent0.<clinit>() - sun.misc.Unsafe.copyMemory: available
+[[36mDEBUG[m] 2022-09-28 15:03:15,390 PlatformDependent0.<clinit>() - java.nio.Buffer.address: available
+[[36mDEBUG[m] 2022-09-28 15:03:15,390 PlatformDependent0.<clinit>() - direct buffer constructor: unavailable: Reflective setAccessible(true) disabled
+[[36mDEBUG[m] 2022-09-28 15:03:15,390 PlatformDependent0.<clinit>() - java.nio.Bits.unaligned: available, true
+[[36mDEBUG[m] 2022-09-28 15:03:15,390 PlatformDependent0.<clinit>() - jdk.internal.misc.Unsafe.allocateUninitializedArray(int): unavailable: class io.netty.util.internal.PlatformDependent0$6 cannot access class jdk.internal.misc.Unsafe (in module java.base) because module java.base does not export jdk.internal.misc to unnamed module @567d299b
+[[36mDEBUG[m] 2022-09-28 15:03:15,400 PlatformDependent0.<clinit>() - java.nio.DirectByteBuffer.<init>(long, int): unavailable
+[[36mDEBUG[m] 2022-09-28 15:03:15,400 PlatformDependent.unsafeUnavailabilityCause0() - sun.misc.Unsafe: available
+[[36mDEBUG[m] 2022-09-28 15:03:15,400 PlatformDependent.maxDirectMemory0() - maxDirectMemory: 4211081216 bytes (maybe)
+[[36mDEBUG[m] 2022-09-28 15:03:15,400 PlatformDependent.tmpdir0() - -Dio.netty.tmpdir: C:\Users\mgelumb\AppData\Local\Temp (java.io.tmpdir)
+[[36mDEBUG[m] 2022-09-28 15:03:15,400 PlatformDependent.bitMode0() - -Dio.netty.bitMode: 64 (sun.arch.data.model)
+[[36mDEBUG[m] 2022-09-28 15:03:15,400 PlatformDependent.isWindows0() - Platform: Windows
+[[36mDEBUG[m] 2022-09-28 15:03:15,400 PlatformDependent.<clinit>() - -Dio.netty.maxDirectMemory: -1 bytes
+[[36mDEBUG[m] 2022-09-28 15:03:15,400 PlatformDependent.<clinit>() - -Dio.netty.uninitializedArrayAllocationThreshold: -1
+[[36mDEBUG[m] 2022-09-28 15:03:15,400 CleanerJava9.<clinit>() - java.nio.ByteBuffer.cleaner(): available
+[[36mDEBUG[m] 2022-09-28 15:03:15,400 PlatformDependent.<clinit>() - -Dio.netty.noPreferDirect: false
+[[36mDEBUG[m] 2022-09-28 15:03:15,410 PlatformDependent.<clinit>() - org.jctools-core.MpscChunkedArrayQueue: available
+[[36mDEBUG[m] 2022-09-28 15:03:15,440 InternalThreadLocalMap.<clinit>() - -Dio.netty.threadLocalMap.stringBuilder.initialSize: 1024
+[[36mDEBUG[m] 2022-09-28 15:03:15,440 InternalThreadLocalMap.<clinit>() - -Dio.netty.threadLocalMap.stringBuilder.maxSize: 4096
+[[36mDEBUG[m] 2022-09-28 15:03:15,623 JdkSslContext.<clinit>() - Default protocols (JDK): [TLSv1.3, TLSv1.2] 
+[[36mDEBUG[m] 2022-09-28 15:03:15,623 JdkSslContext.<clinit>() - Default cipher suites (JDK): [TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA, TLS_RSA_WITH_AES_128_GCM_SHA256, TLS_RSA_WITH_AES_128_CBC_SHA, TLS_RSA_WITH_AES_256_CBC_SHA, TLS_AES_128_GCM_SHA256, TLS_AES_256_GCM_SHA384]
+[[36mDEBUG[m] 2022-09-28 15:03:15,660 MultithreadEventLoopGroup.<clinit>() - -Dio.netty.eventLoopThreads: 16
+[[36mDEBUG[m] 2022-09-28 15:03:15,670 NioEventLoop.<clinit>() - -Dio.netty.noKeySetOptimization: false
+[[36mDEBUG[m] 2022-09-28 15:03:15,670 NioEventLoop.<clinit>() - -Dio.netty.selectorAutoRebuildThreshold: 512
+[[36mDEBUG[m] 2022-09-28 15:03:15,740 PooledByteBufAllocator.<clinit>() - -Dio.netty.allocator.numHeapArenas: 16
+[[36mDEBUG[m] 2022-09-28 15:03:15,740 PooledByteBufAllocator.<clinit>() - -Dio.netty.allocator.numDirectArenas: 16
+[[36mDEBUG[m] 2022-09-28 15:03:15,740 PooledByteBufAllocator.<clinit>() - -Dio.netty.allocator.pageSize: 8192
+[[36mDEBUG[m] 2022-09-28 15:03:15,740 PooledByteBufAllocator.<clinit>() - -Dio.netty.allocator.maxOrder: 11
+[[36mDEBUG[m] 2022-09-28 15:03:15,740 PooledByteBufAllocator.<clinit>() - -Dio.netty.allocator.chunkSize: 16777216
+[[36mDEBUG[m] 2022-09-28 15:03:15,740 PooledByteBufAllocator.<clinit>() - -Dio.netty.allocator.smallCacheSize: 256
+[[36mDEBUG[m] 2022-09-28 15:03:15,740 PooledByteBufAllocator.<clinit>() - -Dio.netty.allocator.normalCacheSize: 64
+[[36mDEBUG[m] 2022-09-28 15:03:15,740 PooledByteBufAllocator.<clinit>() - -Dio.netty.allocator.maxCachedBufferCapacity: 32768
+[[36mDEBUG[m] 2022-09-28 15:03:15,740 PooledByteBufAllocator.<clinit>() - -Dio.netty.allocator.cacheTrimInterval: 8192
+[[36mDEBUG[m] 2022-09-28 15:03:15,740 PooledByteBufAllocator.<clinit>() - -Dio.netty.allocator.cacheTrimIntervalMillis: 0
+[[36mDEBUG[m] 2022-09-28 15:03:15,750 PooledByteBufAllocator.<clinit>() - -Dio.netty.allocator.useCacheForAllThreads: true
+[[36mDEBUG[m] 2022-09-28 15:03:15,750 PooledByteBufAllocator.<clinit>() - -Dio.netty.allocator.maxCachedByteBuffersPerChunk: 1023
+[[36mDEBUG[m] 2022-09-28 15:03:15,760 ByteBufUtil.<clinit>() - -Dio.netty.allocator.type: pooled
+[[36mDEBUG[m] 2022-09-28 15:03:15,760 ByteBufUtil.<clinit>() - -Dio.netty.threadLocalDirectBufferSize: 0
+[[36mDEBUG[m] 2022-09-28 15:03:15,760 ByteBufUtil.<clinit>() - -Dio.netty.maxThreadLocalCharBufferSize: 16384
+[[36mDEBUG[m] 2022-09-28 15:03:18,039 DefaultChannelId.<clinit>() - -Dio.netty.processId: 449016 (auto-detected)
+[[36mDEBUG[m] 2022-09-28 15:03:18,039 NetUtil.<clinit>() - -Djava.net.preferIPv4Stack: false
+[[36mDEBUG[m] 2022-09-28 15:03:18,039 NetUtil.<clinit>() - -Djava.net.preferIPv6Addresses: false
+[[36mDEBUG[m] 2022-09-28 15:03:18,049 NetUtilInitializations.determineLoopback() - Loopback interface: lo (Software Loopback Interface 1, 127.0.0.1)
+[[36mDEBUG[m] 2022-09-28 15:03:18,049 NetUtil.run() - Failed to get SOMAXCONN from sysctl and file \proc\sys\net\core\somaxconn. Default: 200
+[[36mDEBUG[m] 2022-09-28 15:03:18,069 DefaultChannelId.<clinit>() - -Dio.netty.machineId: 68:84:7e:ff:fe:95:61:39 (auto-detected)
+[[36mDEBUG[m] 2022-09-28 15:03:18,103 AbstractByteBuf.<clinit>() - -Dio.netty.buffer.checkAccessible: true
+[[36mDEBUG[m] 2022-09-28 15:03:18,103 AbstractByteBuf.<clinit>() - -Dio.netty.buffer.checkBounds: true
+[[36mDEBUG[m] 2022-09-28 15:03:18,103 ResourceLeakDetectorFactory.newResourceLeakDetector() - Loaded default ResourceLeakDetector: io.netty.util.ResourceLeakDetector@78b8b39e
+[[36mDEBUG[m] 2022-09-28 15:03:18,132 Recycler.<clinit>() - -Dio.netty.recycler.maxCapacityPerThread: 4096
+[[36mDEBUG[m] 2022-09-28 15:03:18,132 Recycler.<clinit>() - -Dio.netty.recycler.ratio: 8
+[[36mDEBUG[m] 2022-09-28 15:03:18,132 Recycler.<clinit>() - -Dio.netty.recycler.chunkSize: 32
+[[36mDEBUG[m] 2022-09-28 15:03:18,132 Recycler.<clinit>() - -Dio.netty.recycler.blocking: false
+[[36mDEBUG[m] 2022-09-28 15:03:20,819 Brotli.<clinit>() - brotli4j not in the classpath; Brotli support will be unavailable.
+[[36mDEBUG[m] 2022-09-28 15:03:21,141 ThreadLocalRandom.newSeed() - -Dio.netty.initialSeedUniquifier: 0xac321118e34d35c7
+[[32mINFO [m] 2022-09-28 15:03:21,476 BaseTest.startDriver() - Test Started: Searching for Keychain under 25 USD and 6+ age : Edge
+[[32mINFO [m] 2022-09-28 15:03:21,476 BaseTest.startDriver() - Test Started: Searching for Grogu and adding to cart : Edge
+[[32mINFO [m] 2022-09-28 15:03:26,444 CoreSelenium.log() - Launching website http://www.lego.com/en-us
+[[32mINFO [m] 2022-09-28 15:03:27,866 CoreSelenium.log() - Launching website http://www.lego.com/en-us
+[[32mINFO [m] 2022-09-28 15:03:30,063 CoreSelenium.log() - Clicking continue on pop up
+[[32mINFO [m] 2022-09-28 15:03:30,077 CoreSelenium.log() - Clicking continue on pop up
+[[32mINFO [m] 2022-09-28 15:03:34,524 CoreSelenium.log() - Clicking accept cookies
+[[32mINFO [m] 2022-09-28 15:03:34,557 BasePage.<init>() - Main Page was loaded successfully
+[[32mINFO [m] 2022-09-28 15:03:34,559 PageNavigator.navigateToProductsKeychains() - Navigating to keychains
+[[32mINFO [m] 2022-09-28 15:03:34,642 CoreSelenium.log() - Clicking accept cookies
+[[32mINFO [m] 2022-09-28 15:03:34,692 BasePage.<init>() - Main Page was loaded successfully
+[[32mINFO [m] 2022-09-28 15:03:34,898 CoreSelenium.log() - Clicking on search icon
+[[32mINFO [m] 2022-09-28 15:03:35,999 CoreSelenium.log() - Clicking shop button
+[[32mINFO [m] 2022-09-28 15:03:36,511 CoreSelenium.log() - Searching for Grogu
+[[32mINFO [m] 2022-09-28 15:03:36,599 CoreSelenium.log() - Clicking LEGO Merchandise button
+[[32mINFO [m] 2022-09-28 15:03:38,571 BaseTest.testSearchSuggestion() - Suggestion does contain Grogu
+[[32mINFO [m] 2022-09-28 15:03:38,750 BasePage.<init>() - Product info was loaded successfully
+[[32mINFO [m] 2022-09-28 15:03:38,997 CoreSelenium.log() - Clicking keychains link
+[[32mINFO [m] 2022-09-28 15:03:40,857 BaseTest.testSearchSuggestion() - Product page does contain Grogu
+[[32mINFO [m] 2022-09-28 15:03:41,242 CoreSelenium.log() - Adding product to cart
+[[32mINFO [m] 2022-09-28 15:03:43,548 CoreSelenium.log() - Moving to the cart
+[[32mINFO [m] 2022-09-28 15:03:43,580 BasePage.<init>() - Product Result Page was loaded successfully
+[[32mINFO [m] 2022-09-28 15:03:43,907 CoreSelenium.log() - Filtering by Key Chain
+[[32mINFO [m] 2022-09-28 15:03:43,959 BaseTest.startDriver() - Test Started: Searching for Keychain under 25 USD and 6+ age : Edge
+[[32mINFO [m] 2022-09-28 15:03:45,923 BasePage.<init>() - My bag was loaded successfully
+[[32mINFO [m] 2022-09-28 15:03:49,146 CoreSelenium.log() - Launching website http://www.lego.com/en-us
+[[32mINFO [m] 2022-09-28 15:04:01,704 BasePage.<init>() - Main Page was loaded successfully
+[[32mINFO [m] 2022-09-28 15:04:01,705 PageNavigator.navigateToProductsKeychains() - Navigating to keychains
+[[32mINFO [m] 2022-09-28 15:04:01,938 CoreSelenium.log() - Clicking shop button
+[[32mINFO [m] 2022-09-28 15:04:02,330 CoreSelenium.log() - Clicking LEGO Merchandise button
+[[32mINFO [m] 2022-09-28 15:04:04,558 CoreSelenium.log() - Clicking keychains link
+[[32mINFO [m] 2022-09-28 15:04:07,188 BasePage.<init>() - Product Result Page was loaded successfully
+[[32mINFO [m] 2022-09-28 15:04:07,483 CoreSelenium.log() - Filtering by Key Chain

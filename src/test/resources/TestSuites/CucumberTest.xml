@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Lego page tests" parallel="tests" thread-count="2">
+    <listeners>
+        <listener class-name="com.automation.framework.listeners.TestListener"/>
+        <listener class-name="com.automation.framework.listeners.AnnotationTransformer"/>
+    </listeners>
+
     <test name="Test filter">
         <classes>
-            <class name="com.automation.legoProject.cucumber.testRunners.FilterTest">
+            <class name="com.automation.legoproject.cucumber.testRunners.FilterTest">
             </class>
         </classes>
     </test>

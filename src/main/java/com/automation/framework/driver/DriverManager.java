@@ -21,4 +21,11 @@ public abstract class DriverManager {
         return driver.get();
     }
 
+    public synchronized void quitWebDriver() {
+        if (driver.get() != null) {
+            driver.get().quit();
+            driver.set(null);
+        }
+    }
+
 }

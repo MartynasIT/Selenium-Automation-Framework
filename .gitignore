@@ -2,3 +2,6 @@
 /.settings/
 /target/
 
+*.log
+/Reports/
+
