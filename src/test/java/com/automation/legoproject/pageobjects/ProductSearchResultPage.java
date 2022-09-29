@@ -2,6 +2,7 @@ package com.automation.legoproject.pageobjects;
 
 import com.automation.legoproject.base.BasePage;
 import com.automation.framework.utils.CoreSelenium;
+import org.apache.logging.log4j.LogManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
@@ -21,7 +22,7 @@ public class ProductSearchResultPage extends BasePage {
         if (!selenium.isElementFound(SORT_BUTTON))
             throw new RuntimeException("Failed to load " + PAGE_NAME);
         else
-            logger.info(PAGE_NAME + " was loaded successfully");
+            LogManager.getLogger().info(PAGE_NAME + " was loaded successfully");
     }
 
     public void selectProductType(String type, String log) {
@@ -78,14 +79,13 @@ public class ProductSearchResultPage extends BasePage {
     }
 
     public String[][] addToBasket(int howManyToAdd) {
-        logger.info("Adding products to basket");
         String[][] products = new String[howManyToAdd][2];
         int i = 0;
         for (WebElement product : selenium.findElements(PRODUCT_ITEM)) {
             if (i == howManyToAdd)
                 return products;
             WebElement addToBag = product.findElement(By.xpath(".//button[@data-test='product-leaf-cta-add-to-cart']"));
-            selenium.jsClick(addToBag);
+            selenium.jsClick(addToBag, "Adding product to the basket");
             products[i][0] = selenium.findElement(By.xpath("//div[@data-test='add-to-bag-modal']//p[1]"),
                     2, 1).getText();
             products[i][1] = selenium.findElement(By.xpath("//div[@data-test='add-to-bag-modal']//p[2]"),
@@ -93,7 +93,6 @@ public class ProductSearchResultPage extends BasePage {
             selenium.click(By.xpath("//button[@data-test='continue-shopping-button']"));
             i++;
         }
-        logger.info("Products added to basket");
         return products;
     }
 

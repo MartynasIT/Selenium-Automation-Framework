@@ -2,6 +2,7 @@ package com.automation.legoproject.pageobjects;
 
 import com.automation.legoproject.base.BasePage;
 import com.automation.framework.utils.CoreSelenium;
+import org.apache.logging.log4j.LogManager;
 import org.openqa.selenium.By;
 
 public class ProductInfoPage extends BasePage {
@@ -18,7 +19,7 @@ public class ProductInfoPage extends BasePage {
         if (!selenium.isElementFound(WISHLISH_BUTTON))
             throw new RuntimeException("Failed to load " + PAGE_NAME);
         else
-            logger.info(PAGE_NAME + " was loaded successfully");
+            LogManager.getLogger().info(PAGE_NAME + " was loaded successfully");
     }
 
     public void addItemToCart(boolean navigateToCart) {

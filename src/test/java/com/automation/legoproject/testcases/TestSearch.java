@@ -26,11 +26,11 @@ public class TestSearch extends BaseTest {
         selenium.waitTwoSeconds();
         List<WebElement> suggestions = header.getSuggestions();
         Assert.assertTrue(suggestions.get(0).getText().contains(item), "Suggestion should have contained " + item);
-        logger.info("Suggestion does contain " + item);
+        logger.log("Suggestion does contain " + item);
         suggestions.get(0).click();
         product = new ProductInfoPage(selenium);
         Assert.assertTrue(product.getProductName().contains(item), "Product name should have contained " + item);
-        logger.info("Product page does contain " + item);
+        logger.log("Product page does contain " + item);
         product.addItemToCart(true);
         new CartPage(selenium);
     }

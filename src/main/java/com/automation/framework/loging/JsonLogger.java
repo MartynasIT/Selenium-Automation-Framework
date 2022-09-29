@@ -9,7 +9,7 @@ import org.json.simple.parser.ParseException;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class JsonLogger implements Logger {
+public class JsonLogger implements FileLogger {
     JSONObject jsonObject;
     public final static String JSON_PATH = "./Reports/" + "RunResults.json";
 

@@ -4,8 +4,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.Duration;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import com.automation.framework.loging.ConsoleLogger;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.Color;
@@ -24,25 +23,32 @@ import org.openqa.selenium.support.ui.*;
 public class CoreSelenium {
 
     private final ThreadLocal<WebDriver> driver = new ThreadLocal<WebDriver>();
-    @Setter
-    @Getter
+    @Setter @Getter
     private static Integer maxWaitTime = 20;
-    @Setter
-    @Getter
+    @Setter @Getter
     private static Integer pollTime = 2;
-    private Logger logger = LogManager.getLogger(CoreSelenium.class);
+    private final ThreadLocal<ConsoleLogger> logger = new ThreadLocal<ConsoleLogger>();
 
-    public CoreSelenium(WebDriver driver) {
+    public CoreSelenium(WebDriver driver, ConsoleLogger logger) {
         setDriver(driver);
+        setLogger(logger);
+    }
+
+    private void log(String logMessage) {
+        if (logMessage != null)
+            getLogger().log(logMessage);
     }
 
     private synchronized void setDriver(WebDriver driver) {
         this.driver.set(driver);
     }
 
-    private void log(String logMessage) {
-        if (logMessage != null)
-            logger.info(logMessage);
+    private void setLogger(ConsoleLogger logger) {
+        this.logger.set(logger);
+    }
+
+    private ConsoleLogger getLogger() {
+        return this.logger.get();
     }
 
     /**
@@ -568,7 +574,7 @@ public class CoreSelenium {
      */
     public void selectByValue(By locator, String value, String logMessage, Integer maxWaitTime, Integer pollTime) {
         this.select(locator, maxWaitTime, pollTime).selectByValue(value);
-        logger.info(logMessage);
+        log(logMessage);
     }
 
     /**
@@ -582,7 +588,7 @@ public class CoreSelenium {
      */
     public void selectByVisibleText(By locator, String visibleText, String logMessage, Integer maxWaitTime, Integer pollTime) {
         this.select(locator, maxWaitTime, pollTime).selectByVisibleText(visibleText);
-        logger.info(logMessage);
+        log(logMessage);
     }
 
     /**
@@ -596,7 +602,7 @@ public class CoreSelenium {
      */
     public void selectByIndex(By locator, Integer index, String logMessage, Integer maxWaitTime, Integer pollTime) {
         this.select(locator, maxWaitTime, pollTime).selectByIndex(index);
-        logger.info(logMessage);
+        log(logMessage);
     }
 
     /**
@@ -795,7 +801,7 @@ public class CoreSelenium {
      */
     public String getUiAttribute(By element, String attributeName, String logMessage, Integer pollTime) {
         String attributeProperty = getDriver().findElement(element).getCssValue(attributeName);
-        logger.info(logMessage);
+        log(logMessage);
         if (attributeName.contains("color")) {
             return Color.fromString(attributeProperty).asHex();
         } else {

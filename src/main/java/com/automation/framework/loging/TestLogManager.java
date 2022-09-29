@@ -12,7 +12,7 @@ public class TestLogManager {
     private String methodName;
     private String browser;
     private static final String NO_ERROR = "No Errors!";
-    Logger JsonLogger;
+    FileLogger JsonLogger;
 
     public TestLogManager(ITestResult result, RemoteWebDriver driver) {
         this.result = result;

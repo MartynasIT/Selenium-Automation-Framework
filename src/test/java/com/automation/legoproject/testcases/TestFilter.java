@@ -23,7 +23,7 @@ public class TestFilter extends BaseTest {
     @Test
     public void testFilterAndBasket() {
         mainPage = new MainPage(selenium, true);
-        navigator = new PageNavigator(selenium);
+        navigator = new PageNavigator(selenium, logger);
         results = navigator.navigateToProductsKeychains();
         String item = getJsonReader().getValue("Search.Item");
         String age = getJsonReader().getValue("Search.Age");
@@ -37,21 +37,21 @@ public class TestFilter extends BaseTest {
         results.loadProducts(resultCount);
         Assert.assertEquals(resultCount, results.getCountOfActualLoadedItems(),
                 "Page should have loaded exact amount of products");
-        logger.info("Correct amount of products was loaded");
+        logger.log("Correct amount of products was loaded");
         Assert.assertTrue(order.isFilterSatisfied(item, getJsonReader().getValue("Search.Max_Price"),
                 results.getAllProductData()), "Filter did not work correctly");
-        logger.info("All prices are below filter and products are " + item);
+        logger.log("All prices are below filter and products are " + item);
         String[][] addToBagProducts = results.addToBasket(3);
         cart = navigator.navigateToCart();
-        Assert.assertTrue(new ArrayWorker().are2DArraysSame(cart.getAllProductData(), addToBagProducts), "Items " +
+        Assert.assertTrue(ArrayWorker.are2DArraysSame(cart.getAllProductData(), addToBagProducts), "Items " +
                 "should have been the same in the cart compared to what was added to cart");
-        logger.info("Correct items were added to cart");
+        logger.log("Correct items were added to cart");
         Assert.assertTrue(order.areAllProductsAddedOnce(cart.getAllQuantitiesInCart()), "Items" +
                 "should have been only once");
-        logger.info("All items were added once");
+        logger.log("All items were added once");
         Assert.assertEquals(cart.getTotal(), order.calculateOrderTotalOfItemsAdded(addToBagProducts,
                 cart.getShippingPrice()), "Total of order is not correct");
-        logger.info("Total of order is correct");
+        logger.log("Total of order is correct");
     }
 
 

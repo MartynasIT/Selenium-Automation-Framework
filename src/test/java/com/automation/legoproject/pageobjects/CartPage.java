@@ -2,6 +2,7 @@ package com.automation.legoproject.pageobjects;
 
 import com.automation.legoproject.base.BasePage;
 import com.automation.framework.utils.CoreSelenium;
+import org.apache.logging.log4j.LogManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -20,7 +21,7 @@ public class CartPage extends BasePage {
         if (!selenium.isElementFound(MY_BAG_LABEL))
             throw new RuntimeException("Failed to load " + PAGE_NAME);
         else
-            logger.info(PAGE_NAME + " was loaded successfully");
+            LogManager.getLogger().info(PAGE_NAME + " was loaded successfully");
     }
 
     public Integer getAmountOfItemsInCart() {

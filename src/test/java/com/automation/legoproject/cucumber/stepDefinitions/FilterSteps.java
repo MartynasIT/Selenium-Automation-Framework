@@ -17,13 +17,13 @@ public class FilterSteps extends BaseTest {
     @Given("I am at {string} main page")
     public void i_am_at_main_page(String page) {
         super.setup(null);
-        navigator = new PageNavigator(selenium);
+        navigator = new PageNavigator(selenium, logger);
         new MainPage(selenium, true);
     }
 
     @When("I navigate to Lego Merchandise page and click on Keychains")
     public void i_navigate_to_lego_merchandise_page_and_click_on_keychains() {
-        logger.info("Navigating to keychains");
+        logger.log("Navigating to keychains");
         results = navigator.navigateToProductsKeychains();
     }
 
@@ -51,10 +51,10 @@ public class FilterSteps extends BaseTest {
         results.loadProducts(resultCount);
         Assert.assertEquals(resultCount, results.getCountOfActualLoadedItems(),
                 "Page should have loaded exact amount of products");
-        logger.info("Correct amount of products was loaded");
+        logger.log("Correct amount of products was loaded");
         Assert.assertTrue(orderInfo.isFilterSatisfied(item, maxPrice,
                 results.getAllProductData()), "Filter did not work correctly");
-        logger.info("All prices are below filter and products are " + item);
+        logger.log("All prices are below filter and products are " + item);
         quitDriver();
     }
 }
