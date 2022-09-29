@@ -1,24 +1,21 @@
 package com.automation.legoproject.base;
 
-import com.automation.framework.loging.ConsoleLogger;
+import com.automation.framework.loging.Log4jLogger;
 import com.automation.framework.utils.CoreSelenium;
 import com.automation.legoproject.pagecomponents.HeaderMenu;
 import com.automation.legoproject.pageobjects.CartPage;
 import com.automation.legoproject.pageobjects.ProductSearchResultPage;
 
-public class PageNavigator {
+public class PageNavigator extends BasePage{
     HeaderMenu header;
-    private CoreSelenium selenium;
-    private ConsoleLogger logger;
 
-    public PageNavigator(CoreSelenium selenium, ConsoleLogger logger) {
-        this.selenium = selenium;
-        this.logger = logger;
+    public PageNavigator(CoreSelenium selenium){
+        super(selenium);
         header = new HeaderMenu(selenium);
     }
 
     public ProductSearchResultPage navigateToProductsKeychains() {
-        logger.log("Navigating to keychains");
+        Log4jLogger.log("Navigating to keychains");
         header.clickShop();
         header.clickMerchandise();
         header.clickKeychains();
@@ -26,7 +23,7 @@ public class PageNavigator {
     }
 
     public CartPage navigateToCart() {
-        logger.log("Navigating to Cart");
+        Log4jLogger.log("Navigating to Cart");
         header.clickBag();
         return new CartPage(selenium);
     }

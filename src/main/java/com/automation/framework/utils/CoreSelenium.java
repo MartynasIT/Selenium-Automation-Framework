@@ -4,7 +4,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.Duration;
 
-import com.automation.framework.loging.ConsoleLogger;
+import com.automation.framework.loging.Log4jLogger;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.Color;
@@ -27,28 +27,19 @@ public class CoreSelenium {
     private static Integer maxWaitTime = 20;
     @Setter @Getter
     private static Integer pollTime = 2;
-    private final ThreadLocal<ConsoleLogger> logger = new ThreadLocal<ConsoleLogger>();
+    private Log4jLogger logger;
 
-    public CoreSelenium(WebDriver driver, ConsoleLogger logger) {
+    public CoreSelenium(WebDriver driver) {
         setDriver(driver);
-        setLogger(logger);
     }
 
     private void log(String logMessage) {
         if (logMessage != null)
-            getLogger().log(logMessage);
+            logger.log(logMessage);
     }
 
     private synchronized void setDriver(WebDriver driver) {
         this.driver.set(driver);
-    }
-
-    private void setLogger(ConsoleLogger logger) {
-        this.logger.set(logger);
-    }
-
-    private ConsoleLogger getLogger() {
-        return this.logger.get();
     }
 
     /**

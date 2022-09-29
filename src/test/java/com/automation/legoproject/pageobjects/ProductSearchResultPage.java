@@ -1,15 +1,15 @@
 package com.automation.legoproject.pageobjects;
 
+import com.automation.framework.loging.Log4jLogger;
 import com.automation.legoproject.base.BasePage;
 import com.automation.framework.utils.CoreSelenium;
-import org.apache.logging.log4j.LogManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 
 public class ProductSearchResultPage extends BasePage {
 
-    private String PAGE_NAME = "Product Result Page";
+    private static final String PAGE_NAME = "Product Result Page";
     private String FILTER_MENU = "//div[@div='facet-navigation']";
     private final By SORT_BUTTON = By.id("sortBy");
     private final By PRODUCT_TYPE = By.xpath(FILTER_MENU + "//div[@data-test='facet-navigation__list-type']");
@@ -22,7 +22,7 @@ public class ProductSearchResultPage extends BasePage {
         if (!selenium.isElementFound(SORT_BUTTON))
             throw new RuntimeException("Failed to load " + PAGE_NAME);
         else
-            LogManager.getLogger().info(PAGE_NAME + " was loaded successfully");
+            Log4jLogger.log(PAGE_NAME + " was loaded successfully");
     }
 
     public void selectProductType(String type, String log) {

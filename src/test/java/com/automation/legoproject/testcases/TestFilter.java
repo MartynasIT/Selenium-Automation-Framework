@@ -1,5 +1,6 @@
 package com.automation.legoproject.testcases;
 
+import com.automation.framework.loging.Log4jLogger;
 import com.automation.legoproject.base.BaseTest;
 import com.automation.legoproject.base.PageNavigator;
 import com.automation.legoproject.pageobjects.CartPage;
@@ -23,7 +24,7 @@ public class TestFilter extends BaseTest {
     @Test
     public void testFilterAndBasket() {
         mainPage = new MainPage(selenium, true);
-        navigator = new PageNavigator(selenium, logger);
+        navigator = new PageNavigator(selenium);
         results = navigator.navigateToProductsKeychains();
         String item = getJsonReader().getValue("Search.Item");
         String age = getJsonReader().getValue("Search.Age");
@@ -37,21 +38,21 @@ public class TestFilter extends BaseTest {
         results.loadProducts(resultCount);
         Assert.assertEquals(resultCount, results.getCountOfActualLoadedItems(),
                 "Page should have loaded exact amount of products");
-        logger.log("Correct amount of products was loaded");
+        Log4jLogger.log("Correct amount of products was loaded");
         Assert.assertTrue(order.isFilterSatisfied(item, getJsonReader().getValue("Search.Max_Price"),
                 results.getAllProductData()), "Filter did not work correctly");
-        logger.log("All prices are below filter and products are " + item);
+        Log4jLogger.log("All prices are below filter and products are " + item);
         String[][] addToBagProducts = results.addToBasket(3);
         cart = navigator.navigateToCart();
         Assert.assertTrue(ArrayWorker.are2DArraysSame(cart.getAllProductData(), addToBagProducts), "Items " +
                 "should have been the same in the cart compared to what was added to cart");
-        logger.log("Correct items were added to cart");
+        Log4jLogger.log("Correct items were added to cart");
         Assert.assertTrue(order.areAllProductsAddedOnce(cart.getAllQuantitiesInCart()), "Items" +
                 "should have been only once");
-        logger.log("All items were added once");
+        Log4jLogger.log("All items were added once");
         Assert.assertEquals(cart.getTotal(), order.calculateOrderTotalOfItemsAdded(addToBagProducts,
                 cart.getShippingPrice()), "Total of order is not correct");
-        logger.log("Total of order is correct");
+        Log4jLogger.log("Total of order is correct");
     }
 
 

@@ -1,24 +1,21 @@
-[[32mINFO [m] 2022-09-29 14:44:04,574 Log4jLogger.log() - Test Started: Searching for Grogu and adding to cart : Edge
-[[32mINFO [m] 2022-09-29 14:44:04,574 Log4jLogger.log() - Test Started: Searching for Keychain under 25 USD and 6+ age : Edge
-[[32mINFO [m] 2022-09-29 14:44:08,472 Log4jLogger.log() - Launching website http://www.lego.com/en-us
-[[32mINFO [m] 2022-09-29 14:44:09,392 Log4jLogger.log() - Launching website http://www.lego.com/en-us
-[[32mINFO [m] 2022-09-29 14:44:11,105 Log4jLogger.log() - Clicking continue on pop up
-[[32mINFO [m] 2022-09-29 14:44:11,805 Log4jLogger.log() - Clicking continue on pop up
-[[32mINFO [m] 2022-09-29 14:44:16,327 Log4jLogger.log() - Clicking accept cookies
-[[32mINFO [m] 2022-09-29 14:44:16,354 MainPage.<init>() - Main Page was loaded successfully
-[[32mINFO [m] 2022-09-29 14:44:16,490 Log4jLogger.log() - Clicking on search icon
-[[32mINFO [m] 2022-09-29 14:44:16,719 Log4jLogger.log() - Clicking accept cookies
-[[32mINFO [m] 2022-09-29 14:44:17,770 MainPage.<init>() - Main Page was loaded successfully
-[[32mINFO [m] 2022-09-29 14:44:17,771 Log4jLogger.log() - Navigating to keychains
-[[32mINFO [m] 2022-09-29 14:44:19,601 Log4jLogger.log() - Searching for Grogu
-[[32mINFO [m] 2022-09-29 14:44:21,340 Log4jLogger.log() - Clicking shop button
-[[32mINFO [m] 2022-09-29 14:44:21,692 Log4jLogger.log() - Suggestion does contain Grogu
-[[32mINFO [m] 2022-09-29 14:44:21,731 Log4jLogger.log() - Clicking LEGO Merchandise button
-[[32mINFO [m] 2022-09-29 14:44:21,981 ProductInfoPage.<init>() - Product info was loaded successfully
-[[32mINFO [m] 2022-09-29 14:44:24,131 Log4jLogger.log() - Clicking keychains link
-[[32mINFO [m] 2022-09-29 14:44:24,468 Log4jLogger.log() - Product page does contain Grogu
-[[32mINFO [m] 2022-09-29 14:44:26,392 Log4jLogger.log() - Adding product to cart
-[[32mINFO [m] 2022-09-29 14:44:27,204 ProductSearchResultPage.<init>() - Product Result Page was loaded successfully
-[[32mINFO [m] 2022-09-29 14:44:27,644 Log4jLogger.log() - Filtering by Key Chain
-[[32mINFO [m] 2022-09-29 14:44:28,751 Log4jLogger.log() - Moving to the cart
-[[32mINFO [m] 2022-09-29 14:44:30,851 CartPage.<init>() - My bag was loaded successfully
+[[32mINFO [m] 2022-09-29 17:47:26,762 Log4jLogger.log() - Test Started: Searching for Grogu and adding to cart : Edge
+[[32mINFO [m] 2022-09-29 17:47:29,621 Log4jLogger.log() - Launching website http://www.lego.com/en-us
+[[32mINFO [m] 2022-09-29 17:47:31,310 Log4jLogger.log() - Clicking continue on pop up
+[[32mINFO [m] 2022-09-29 17:47:36,006 Log4jLogger.log() - Clicking accept cookies
+[[32mINFO [m] 2022-09-29 17:47:36,057 Log4jLogger.log() - Main Page was loaded successfully
+[[32mINFO [m] 2022-09-29 17:47:36,934 Log4jLogger.log() - Clicking on search icon
+[[32mINFO [m] 2022-09-29 17:47:37,971 Log4jLogger.log() - Searching for Grogu
+[[32mINFO [m] 2022-09-29 17:47:40,033 Log4jLogger.log() - Suggestion does contain Grogu
+[[32mINFO [m] 2022-09-29 17:47:40,210 Log4jLogger.log() - Product info was loaded successfully
+[[32mINFO [m] 2022-09-29 17:47:42,342 Log4jLogger.log() - Product page does contain Grogu
+[[32mINFO [m] 2022-09-29 17:47:42,675 Log4jLogger.log() - Adding product to cart
+[[32mINFO [m] 2022-09-29 17:47:45,060 Log4jLogger.log() - Moving to the cart
+[[32mINFO [m] 2022-09-29 17:47:47,129 Log4jLogger.log() - My bag was loaded successfully
+[[32mINFO [m] 2022-09-29 17:47:47,195 Log4jLogger.log() - Clicking on search icon
+[[32mINFO [m] 2022-09-29 17:47:47,486 Log4jLogger.log() - Searching for Yoda
+[[32mINFO [m] 2022-09-29 17:47:49,528 Log4jLogger.log() - Suggestion does contain Yoda
+[[32mINFO [m] 2022-09-29 17:47:49,659 Log4jLogger.log() - Product info was loaded successfully
+[[32mINFO [m] 2022-09-29 17:47:51,769 Log4jLogger.log() - Product page does contain Yoda
+[[32mINFO [m] 2022-09-29 17:47:52,000 Log4jLogger.log() - Adding product to cart
+[[32mINFO [m] 2022-09-29 17:47:54,570 Log4jLogger.log() - Moving to the cart
+[[32mINFO [m] 2022-09-29 17:47:55,397 Log4jLogger.log() - My bag was loaded successfully

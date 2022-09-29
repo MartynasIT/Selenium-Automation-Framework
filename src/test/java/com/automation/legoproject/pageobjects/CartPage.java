@@ -1,14 +1,14 @@
 package com.automation.legoproject.pageobjects;
 
+import com.automation.framework.loging.Log4jLogger;
 import com.automation.legoproject.base.BasePage;
 import com.automation.framework.utils.CoreSelenium;
-import org.apache.logging.log4j.LogManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 public class CartPage extends BasePage {
 
-    private final String PAGE_NAME = "My bag";
+    private static final String PAGE_NAME = "My bag";
     private final By MY_BAG_LABEL = By.xpath("//h1[contains(text(),'My Bag')]");
     private final By CART_ITEM = By.xpath("//div[@data-test='cart-item']");
     private final By TOTAL_AMOUNT = By.xpath("//main[@id='main-content']/div[1]/div[2]/div[2]/div[3]/div[1]/div[2]/" +
@@ -21,7 +21,7 @@ public class CartPage extends BasePage {
         if (!selenium.isElementFound(MY_BAG_LABEL))
             throw new RuntimeException("Failed to load " + PAGE_NAME);
         else
-            LogManager.getLogger().info(PAGE_NAME + " was loaded successfully");
+            Log4jLogger.log(PAGE_NAME + " was loaded successfully");
     }
 
     public Integer getAmountOfItemsInCart() {

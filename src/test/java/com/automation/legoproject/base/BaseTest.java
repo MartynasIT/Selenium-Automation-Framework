@@ -23,18 +23,16 @@ public class BaseTest {
     @Setter @Getter
     private TestContext testContext;
     private static boolean suiteRan;
-    protected Log4jLogger logger;
 
     @BeforeTest
     @Parameters("testDataPath")
     public void setup(@Optional String testDataPath) {
-        logger = new Log4jLogger();
         setTestContext(new TestContext(Reporter.getCurrentTestResult().getTestContext()));
         String browser = ((System.getProperty("browser") == null) ? "Edge" : System.getProperty("browser"));
         if (testDataPath != null)
             setJsonReader(new JsonReader(testDataPath));
         setDriverManager(DriverFactory.getDriverManager());
-        selenium = new CoreSelenium(getDriverManager().getWebDriver(), logger);
+        selenium = new CoreSelenium(getDriverManager().getWebDriver());
         getTestContext().setDefaultTestContextDetails(
                 getDriverManager().getWebDriver(),
                 Reporter.getCurrentTestResult().getTestContext().getAllTestMethods()[0].getMethodName(),
@@ -44,7 +42,7 @@ public class BaseTest {
 
     @BeforeMethod
     public void startDriver() {
-        logger.log("Test Started: " + getTestContext().getDetail("JsonTestName"));
+        Log4jLogger.log("Test Started: " + getTestContext().getDetail("JsonTestName"));
         selenium.get(new JsonReader(ENVIRONMENTS).getValue("Lego.URL"), "Launching website");
     }
 

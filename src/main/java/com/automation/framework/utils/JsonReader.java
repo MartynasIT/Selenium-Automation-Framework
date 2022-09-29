@@ -1,25 +1,28 @@
 package com.automation.framework.utils;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import java.io.FileReader;
 import java.io.IOException;
 
 public class JsonReader {
-    String path = null;
-    @Getter
-    @Setter
+    @Getter @Setter
+    private String path;
+    @Getter @Setter
     private JSONObject jsonObject;
     JSONParser parser;
 
     public JsonReader(String path) {
-        this.path = path;
+        setPath(path);
         parser = new JSONParser();
-        if (path.contains(".json"))
+        if (getPath().contains(".json"))
             parseFromFile();
         else
             parseFromString();
@@ -27,7 +30,7 @@ public class JsonReader {
 
     public JsonReader parseFromFile() {
         try {
-            setJsonObject((JSONObject) parser.parse(SystemUtil.readFile(path)));
+            setJsonObject((JSONObject) parser.parse(SystemUtil.readFile(getPath())));
         } catch (IOException e) {
             e.printStackTrace();
         } catch (ParseException e) {
@@ -38,7 +41,7 @@ public class JsonReader {
 
     public JsonReader parseFromString() {
         try {
-            setJsonObject((JSONObject) parser.parse(path));
+            setJsonObject((JSONObject) parser.parse(getPath()));
         } catch (ParseException e) {
             throw new RuntimeException("Problem reading JSON string");
         }
@@ -62,5 +65,20 @@ public class JsonReader {
         String item = parts[1];
         JSONObject results = (JSONObject) getJsonObject().get(array);
         return results.get(item).toString();
+    }
+
+    public JSONArray getJsonArray(String value) {
+        JSONObject object = parseFromFile().getJsonObject();
+        return (JSONArray) object.get(value);
+    }
+
+    public JsonNode getJsonMapper(String list) {
+        JsonNode mapper = null;
+        try {
+            mapper = new ObjectMapper().readTree(getJsonArray(list).toJSONString());
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        return mapper;
     }
 }

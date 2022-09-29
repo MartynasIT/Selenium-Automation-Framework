@@ -11,4 +11,4 @@
 /target/generated-sources/
 /target/generated-test-sources/
 /target/maven-status/
-/target/test-classes/
+*/target/**
