@@ -30,6 +30,7 @@ public class TestFilter extends BaseTest {
         String age = getJsonReader().getValue("Search.Age");
         String price = getJsonReader().getValue("Search.Money");
         results.selectProductType(item, "Filtering by " + item);
+        results.ExpandFilters();
         results.selectAge(age, "Filtering by " + age);
         results.selectPrice(price, "Filtering by " + price);
         selenium.waitTwoSeconds();
@@ -39,7 +40,7 @@ public class TestFilter extends BaseTest {
         Assert.assertEquals(resultCount, results.getCountOfActualLoadedItems(),
                 "Page should have loaded exact amount of products");
         Log4jLogger.log("Correct amount of products was loaded");
-        Assert.assertTrue(order.isFilterSatisfied(item, getJsonReader().getValue("Search.Max_Price"),
+        Assert.assertTrue(order.isFilterSatisfied(getJsonReader().getValue("Search.Max_Price"),
                 results.getAllProductData()), "Filter did not work correctly");
         Log4jLogger.log("All prices are below filter and products are " + item);
         String[][] addToBagProducts = results.addToBasket(3);
@@ -57,9 +58,8 @@ public class TestFilter extends BaseTest {
 
 
     public class LegoOrderInfo {
-        public boolean isFilterSatisfied(String name, String price, String[][] products) {
+        public boolean isFilterSatisfied(String price, String[][] products) {
             for (String[] product : products) {
-                String productName = product[0].trim();
                 String productPrice = product[1].
                         replace("Price", "").
                         replace("Sale Price", "").

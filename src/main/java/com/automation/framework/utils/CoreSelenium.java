@@ -101,7 +101,7 @@ public class CoreSelenium {
      * @param pollTime    - Poll interval
      */
     public void click(By locator, String logMessage, Integer maxWaitTime, Integer pollTime) {
-        this.waitUntilElementToBeClickable(locator, maxWaitTime, pollTime).click();
+        this.waitUntilElementToBeClickable(locator, maxWaitTime, pollTime, logMessage).click();
         log(logMessage);
     }
 
@@ -136,7 +136,7 @@ public class CoreSelenium {
      */
     public void clickRadioButton(By locator, String logMessage, Integer maxWaitTime, Integer pollTime) {
         Actions action = new Actions(getDriver());
-        WebElement radioBtn = this.findElement(locator, maxWaitTime, pollTime);
+        WebElement radioBtn = this.findElement(locator, maxWaitTime, pollTime, logMessage);
         action.click(radioBtn).build().perform();
         log(logMessage);
     }
@@ -287,7 +287,7 @@ public class CoreSelenium {
      * @return - true - if clickable, false - if not clickable
      */
     public WebElement waitUntilElementToBeClickable(By locator) {
-        return waitUntilElementToBeClickable(locator, null, null);
+        return waitUntilElementToBeClickable(locator, null, null, "");
     }
 
     /**
@@ -298,9 +298,9 @@ public class CoreSelenium {
      * @param pollTime    - Poll interval
      * @return - Clickable WebElement
      */
-    public WebElement waitUntilElementToBeClickable(By locator, Integer maxWaitTime, Integer pollTime) {
+    public WebElement waitUntilElementToBeClickable(By locator, Integer maxWaitTime, Integer pollTime, String logMessage) {
         this.getWait(maxWaitTime, pollTime).until(ExpectedConditions.elementToBeClickable(locator));
-        return this.findElement(locator, maxWaitTime, pollTime);
+        return this.findElement(locator, maxWaitTime, pollTime, logMessage);
     }
 
     /**
@@ -331,11 +331,11 @@ public class CoreSelenium {
      * @param pollTime    - Poll interval
      * @return - WebElement
      */
-    public WebElement findElement(By locator, Integer maxWaitTime, Integer pollTime) {
+    public WebElement findElement(By locator, Integer maxWaitTime, Integer pollTime, String logMessage) {
         if (isElementFound(locator, maxWaitTime, pollTime)) {
             return getDriver().findElement(locator);
         } else {
-            return null;
+            throw new RuntimeException(logMessage + " And It Was Not Found!");
         }
     }
 

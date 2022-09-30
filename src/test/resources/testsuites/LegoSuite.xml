@@ -6,16 +6,16 @@
         <listener class-name="com.automation.framework.listeners.AnnotationTransformer"/>
     </listeners>
 
-<!--    <test name="Test filter and cart">-->
-<!--        <parameter name="testDataPath" value="src/test/resources/TestData/DataKeyChainSearch.json"/>-->
-<!--        <classes>-->
-<!--            <class name="com.automation.legoproject.testcases.TestFilter">-->
-<!--                <methods>-->
-<!--                    <include name="testFilterAndBasket"/>-->
-<!--                </methods>-->
-<!--            </class>-->
-<!--        </classes>-->
-<!--    </test>-->
+    <test name="Test filter and cart">
+        <parameter name="testDataPath" value="src/test/resources/TestData/DataKeyChainSearch.json"/>
+        <classes>
+            <class name="com.automation.legoproject.testcases.TestFilter">
+                <methods>
+                    <include name="testFilterAndBasket"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
 
     <test name="Test search">
         <parameter name="testDataPath" value="src/test/resources/TestData/DataSearch.json"/>

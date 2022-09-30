@@ -6,6 +6,8 @@ import com.automation.legoproject.base.PageNavigator;
 import com.automation.legoproject.pageobjects.MainPage;
 import com.automation.legoproject.pageobjects.ProductSearchResultPage;
 import com.automation.legoproject.testcases.TestFilter;
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -15,9 +17,14 @@ public class FilterSteps extends BaseTest {
     PageNavigator navigator;
     ProductSearchResultPage results;
 
+    @Before
+    public void initialize() {
+        super.setup("src/test/resources/testdata/DataKeychainSearch.json");
+        super.startDriver();
+    }
+
     @Given("I am at {string} main page")
     public void i_am_at_main_page(String page) {
-        super.setup(null);
         navigator = new PageNavigator(selenium);
         new MainPage(selenium, true);
     }
@@ -30,6 +37,7 @@ public class FilterSteps extends BaseTest {
 
     @When("I select {string} in the Product type filter")
     public void i_select_in_the_product_type_filter(String type) {
+        results.ExpandFilters();
         results.selectProductType(type, "Filtering by " + type);
     }
 
@@ -53,9 +61,13 @@ public class FilterSteps extends BaseTest {
         Assert.assertEquals(resultCount, results.getCountOfActualLoadedItems(),
                 "Page should have loaded exact amount of products");
         Log4jLogger.log("Correct amount of products was loaded");
-        Assert.assertTrue(orderInfo.isFilterSatisfied(item, maxPrice,
+        Assert.assertTrue(orderInfo.isFilterSatisfied(maxPrice,
                 results.getAllProductData()), "Filter did not work correctly");
         Log4jLogger.log("All prices are below filter and products are " + item);
-        quitDriver();
+    }
+
+    @After
+    public void quitDriver() {
+        super.getDriverManager().quitWebDriver();
     }
 }

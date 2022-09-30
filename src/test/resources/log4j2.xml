@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration status="WARN">
     <Properties>
-        <Property name="logPath">target/cucumber-logs</Property>
-        <Property name="rollingFileName">cucumber</Property>
+        <Property name="logPath">target/test-logs</Property>
+        <Property name="rollingFileName">RunLog</Property>
     </Properties>
     <Appenders>
         <Console name="console" target="SYSTEM_OUT">
-            <PatternLayout pattern="[%highlight{%-5level}] %d{DEFAULT} %c{1}.%M() - %msg%n%throwable{short.lineNumber}" />
+            <PatternLayout pattern="[%highlight{%-5level}] %d{DEFAULT} - %msg%n%throwable{short.lineNumber}" />
         </Console>
         <RollingFile name="rollingFile" fileName="${logPath}/${rollingFileName}.log" filePattern="${logPath}/${rollingFileName}_%d{yyyy-MM-dd}.log">
             <PatternLayout pattern="[%highlight{%-5level}] %d{DEFAULT} %c{1}.%M() - %msg%n%throwable{short.lineNumber}" />
@@ -17,7 +17,7 @@
         </RollingFile>
     </Appenders>
     <Loggers>
-        <Root level="info" additivity="false">
+        <Root level="INFO" additivity="false">
             <AppenderRef ref="console" />
             <AppenderRef ref="rollingFile" />
         </Root>

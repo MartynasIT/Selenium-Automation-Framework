@@ -39,7 +39,7 @@ public class ProductSearchResultPage extends BasePage {
 
     public String getResultCount() {
         String text = selenium.getText(LISTING_SUMMARY_TEXT, 2, 1);
-        text = text.substring((text.indexOf("of") + 1), text.indexOf("results")).replace("f", "").trim();
+        text = text.substring((text.indexOf("Showing")), text.indexOf("Products")).replace("Showing", "").trim();
         return text;
     }
 
@@ -56,7 +56,12 @@ public class ProductSearchResultPage extends BasePage {
     private WebElement getCheckBoxElement(String filter) {
         return selenium.findElement(By.xpath("//label[@data-test='checkbox-label']/child::" +
                 "div/following-sibling::" + "span[contains(text()," + "'" + filter + "'" + ")]" +
-                "/preceding-sibling::div/child::input"));
+                "/preceding-sibling::div/child::input"), 1,1, "Looking for filter option " + filter);
+    }
+
+    public void ExpandFilters() {
+        selenium.click(By.id("product-facet-ageRange-accordion-title"));
+        selenium.click(By.id("product-facet-prices-accordion-title"));
     }
 
     public Integer getCountOfActualLoadedItems() {
@@ -87,9 +92,9 @@ public class ProductSearchResultPage extends BasePage {
             WebElement addToBag = product.findElement(By.xpath(".//button[@data-test='product-leaf-cta-add-to-cart']"));
             selenium.jsClick(addToBag, "Adding product to the basket");
             products[i][0] = selenium.findElement(By.xpath("//div[@data-test='add-to-bag-modal']//p[1]"),
-                    2, 1).getText();
+                    2, 1, "Looking for add to bag").getText();
             products[i][1] = selenium.findElement(By.xpath("//div[@data-test='add-to-bag-modal']//p[2]"),
-                    2, 1).getText();
+                    2, 1, "Looking for add to bag").getText();
             selenium.click(By.xpath("//button[@data-test='continue-shopping-button']"));
             i++;
         }

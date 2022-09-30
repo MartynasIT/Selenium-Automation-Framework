@@ -1,9 +1,0 @@
-{
-  "Test_Name": "Searching for Keychain under 25 USD and 6+ age",
-  "Search": {
-    "Item": "Key Chain",
-    "Age": "6+",
-    "Money": "$0 - $25",
-    "Max_Price": "25.00"
-  }
-}
